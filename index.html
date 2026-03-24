@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 ทฤษฎี 21 วัน รีดไขมันก่อนสงกรานต์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5efe3;
+            --bg-soft: #f9f5ee;
+            --surface: rgba(255, 255, 255, 0.86);
+            --surface-strong: #ffffff;
+            --surface-muted: #f7f2e8;
+            --text: #17211d;
+            --text-soft: #61716a;
+            --line: rgba(23, 33, 29, 0.1);
+            --line-strong: rgba(23, 33, 29, 0.18);
+            --hero-deep: #17352d;
+            --hero-warm: #c76532;
+            --hero-gold: #e6b44c;
+            --accent: #8e4120;
+            --accent-soft: rgba(199, 101, 50, 0.12);
+            --success: #2c7c57;
+            --success-soft: rgba(44, 124, 87, 0.12);
+            --info: #2b5f8d;
+            --info-soft: rgba(43, 95, 141, 0.12);
+            --warning: #9b6a0e;
+            --warning-soft: rgba(155, 106, 14, 0.12);
+            --morning-bg: rgba(255, 243, 221, 0.9);
+            --morning-border: rgba(198, 136, 29, 0.22);
+            --noon-bg: rgba(231, 245, 235, 0.9);
+            --noon-border: rgba(44, 124, 87, 0.18);
+            --evening-bg: rgba(232, 241, 249, 0.9);
+            --evening-border: rgba(43, 95, 141, 0.18);
+            --today-ring: #d36d36;
+            --shadow-sm: 0 10px 24px rgba(23, 33, 29, 0.06);
+            --shadow-md: 0 18px 42px rgba(23, 33, 29, 0.12);
+            --shadow-lg: 0 30px 64px rgba(23, 33, 29, 0.18);
+            --radius-xl: 30px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: 0.24s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Prompt", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 0% 0%, rgba(199, 101, 50, 0.18), transparent 34%),
+                radial-gradient(circle at 100% 8%, rgba(44, 124, 87, 0.14), transparent 28%),
+                linear-gradient(180deg, #f4ede0 0%, #eef3ee 52%, #f6f7fb 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 24px 16px 80px;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 28px 22px 24px;
+            border-radius: var(--radius-xl);
+            color: #fff8ef;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(230, 180, 76, 0.24), transparent 30%),
+                radial-gradient(circle at 86% 10%, rgba(255, 255, 255, 0.12), transparent 24%),
+                linear-gradient(135deg, var(--hero-deep) 0%, #22483c 36%, var(--hero-warm) 100%);
+            box-shadow: var(--shadow-lg);
+            isolation: isolate;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            opacity: 0.45;
+            z-index: -1;
+        }
+
+        .hero::before {
+            width: 240px;
+            height: 240px;
+            right: -56px;
+            top: -96px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+        }
+
+        .hero::after {
+            width: 200px;
+            height: 200px;
+            left: -70px;
+            bottom: -90px;
+            background: radial-gradient(circle, rgba(230, 180, 76, 0.28), transparent 70%);
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            background: rgba(255, 248, 239, 0.12);
+            border: 1px solid rgba(255, 248, 239, 0.18);
+            color: #fff0c8;
+            backdrop-filter: blur(12px);
+        }
+
+        .hero h1 {
+            margin-top: 16px;
+            font-family: "Bai Jamjuree", "Prompt", sans-serif;
+            font-size: clamp(28px, 6vw, 46px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-copy {
+            max-width: 720px;
+            margin-top: 14px;
+            color: rgba(255, 248, 239, 0.84);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .constraint-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .constraint-pill {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 248, 239, 0.12);
+            border: 1px solid rgba(255, 248, 239, 0.18);
+            color: #fff8ef;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .daily-rhythm {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .rhythm-item {
+            padding: 14px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 248, 239, 0.1);
+            border: 1px solid rgba(255, 248, 239, 0.14);
+            backdrop-filter: blur(12px);
+        }
+
+        .rhythm-item strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #fff1c2;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .rhythm-item span {
+            display: block;
+            font-size: 14px;
+            line-height: 1.55;
+            color: rgba(255, 248, 239, 0.88);
+        }
+
+        .quick-reference {
+            margin-top: 18px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(18px);
+            overflow: hidden;
+        }
+
+        .quick-reference summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 20px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .quick-reference summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .summary-copy span:last-child {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text-soft);
+            font-weight: 400;
+        }
+
+        .summary-toggle {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.72);
+            transition: transform var(--transition);
+            flex-shrink: 0;
+        }
+
+        .quick-reference[open] .summary-toggle {
+            transform: rotate(180deg);
+        }
+
+        .reference-body {
+            padding: 0 20px 20px;
+        }
+
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .theory-card {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 22px rgba(23, 33, 29, 0.04);
+        }
+
+        .theory-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .theory-number {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(230, 180, 76, 0.18), rgba(199, 101, 50, 0.16));
+            color: var(--accent);
+            font-family: "Bai Jamjuree", "Prompt", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .theory-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--success);
+            background: var(--success-soft);
+        }
+
+        .theory-card h3 {
+            font-size: 18px;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .theory-card p {
+            margin-top: 8px;
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .theory-checks {
+            display: grid;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .theory-checks div {
+            padding-left: 18px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+
+        .theory-checks div::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.58em;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--hero-gold);
+        }
+
+        .theory-outcome {
+            margin-top: 14px;
+            padding: 11px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--surface-muted);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.65;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .support-card {
+            padding: 18px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.54);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(18px);
+        }
+
+        .support-card h2 {
+            font-family: "Bai Jamjuree", "Prompt", sans-serif;
+            font-size: 20px;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .support-card p {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .ratio-guide {
+            display: grid;
+            gap: 16px;
+        }
+
+        .ratio-bar {
+            overflow: hidden;
+            display: flex;
+            width: 100%;
+            height: 16px;
+            border-radius: 999px;
+            background: rgba(23, 33, 29, 0.06);
+        }
+
+        .ratio-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .ratio-segment.protein {
+            flex: 4;
+            background: linear-gradient(135deg, #cb6f38, #a84a21);
+        }
+
+        .ratio-segment.veg {
+            flex: 3;
+            background: linear-gradient(135deg, #458f68, #2d6e4f);
+        }
+
+        .ratio-segment.carb {
+            flex: 3;
+            background: linear-gradient(135deg, #6a87a6, #426582);
+        }
+
+        .ratio-notes {
+            display: grid;
+            gap: 8px;
+        }
+
+        .ratio-notes div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .ratio-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 999px;
+            flex-shrink: 0;
+        }
+
+        .ratio-dot.protein {
+            background: #b95928;
+        }
+
+        .ratio-dot.veg {
+            background: #2f7753;
+        }
+
+        .ratio-dot.carb {
+            background: #4a6e8e;
+        }
+
+        .protein-bank {
+            display: grid;
+            gap: 14px;
+        }
+
+        .protein-list,
+        .swap-list,
+        .support-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .protein-list li,
+        .support-list li {
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .protein-list strong,
+        .support-list strong {
+            color: var(--accent);
+        }
+
+        .plan-shell {
+            margin-top: 22px;
+        }
+
+        .plan-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .plan-head h2 {
+            font-family: "Bai Jamjuree", "Prompt", sans-serif;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .plan-head p {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 540px;
+        }
+
+        .tab-bar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border-radius: var(--radius-lg);
+            background: rgba(245, 239, 227, 0.86);
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(18px);
+        }
+
+        .tab-btn {
+            flex: 1;
+            border: none;
+            padding: 14px 12px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--text-soft);
+            text-align: left;
+            cursor: pointer;
+            transition: transform var(--transition), background var(--transition), box-shadow var(--transition), color var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .tab-btn.active {
+            color: #fff8ef;
+            background: linear-gradient(135deg, #1c3c32, #ba6132);
+            box-shadow: 0 16px 30px rgba(23, 33, 29, 0.18);
+        }
+
+        .tab-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .tab-week {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .tab-range {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .tab-sub {
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .week-panel {
+            display: none;
+            margin-top: 16px;
+            gap: 16px;
+        }
+
+        .week-panel.active {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .day-card {
+            display: grid;
+            grid-template-rows: auto 0fr;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(18px);
+            overflow: hidden;
+            transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+        }
+
+        .day-card.today {
+            border-color: rgba(211, 109, 54, 0.34);
+            box-shadow: 0 0 0 2px rgba(211, 109, 54, 0.2), 0 20px 34px rgba(211, 109, 54, 0.14);
+        }
+
+        .day-card.open {
+            grid-template-rows: auto 1fr;
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 18px;
+            border: none;
+            background: transparent;
+            color: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .card-main {
+            display: grid;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .date-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .date-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .day-name {
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        .today-badge {
+            display: none;
+            padding: 5px 9px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(211, 109, 54, 0.12);
+            color: var(--accent);
+        }
+
+        .day-card.today .today-badge {
+            display: inline-flex;
+        }
+
+        .focus-title {
+            font-size: 18px;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .focus-copy {
+            color: var(--text-soft);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .chevron {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--line);
+            color: var(--accent);
+            transition: transform var(--transition);
+        }
+
+        .day-card.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .card-body {
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .card-body-inner {
+            display: grid;
+            gap: 14px;
+            padding: 0 18px 18px;
+            min-height: 0;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mini-card {
+            padding: 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.84);
+        }
+
+        .mini-card strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .mini-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .protein-reminder {
+            border-color: rgba(199, 101, 50, 0.16);
+            background:
+                linear-gradient(135deg, rgba(255, 244, 233, 0.96), rgba(255, 249, 239, 0.98));
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+        }
+
+        .protein-reminder strong {
+            color: var(--accent);
+        }
+
+        .guide-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sequence-badge,
+        .ratio-badge,
+        .theory-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 13px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .sequence-badge {
+            background: rgba(44, 124, 87, 0.12);
+            color: var(--success);
+        }
+
+        .ratio-badge {
+            background: rgba(43, 95, 141, 0.12);
+            color: var(--info);
+        }
+
+        .theory-pill {
+            background: rgba(230, 180, 76, 0.2);
+            color: #8b5b0a;
+        }
+
+        .meal-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .meal-slot {
+            display: grid;
+            gap: 12px;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid transparent;
+        }
+
+        .meal-slot.morning {
+            background: var(--morning-bg);
+            border-color: var(--morning-border);
+        }
+
+        .meal-slot.noon {
+            background: var(--noon-bg);
+            border-color: var(--noon-border);
+        }
+
+        .meal-slot.evening {
+            background: var(--evening-bg);
+            border-color: var(--evening-border);
+        }
+
+        .meal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meal-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .meal-slot.morning .meal-label {
+            color: #9c6710;
+        }
+
+        .meal-slot.noon .meal-label {
+            color: var(--success);
+        }
+
+        .meal-slot.evening .meal-label {
+            color: var(--info);
+        }
+
+        .meal-time {
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            color: var(--text-soft);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .meal-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .meal-structure {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meal-structure span {
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(23, 33, 29, 0.08);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-soft);
+        }
+
+        .meal-alt {
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px dashed rgba(23, 33, 29, 0.14);
+        }
+
+        .meal-alt-label {
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .swap-list li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .swap-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(199, 101, 50, 0.85);
+        }
+
+        .after-meal {
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.66);
+            border: 1px solid rgba(23, 33, 29, 0.08);
+            font-size: 12px;
+            line-height: 1.65;
+            color: var(--text-soft);
+        }
+
+        .day-note {
+            padding: 14px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, rgba(23, 53, 45, 0.94), rgba(56, 83, 71, 0.92));
+            color: rgba(255, 248, 239, 0.9);
+        }
+
+        .day-note strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #ffe39e;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .day-note p {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            color: var(--text-soft);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        @media (max-width: 1023px) {
+            .support-grid,
+            .week-panel.active {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 16px 12px 72px;
+            }
+
+            .hero {
+                padding: 22px 16px 20px;
+                border-radius: 24px;
+            }
+
+            .daily-rhythm {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .theory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-head {
+                display: grid;
+            }
+
+            .tab-bar {
+                overflow-x: auto;
+                padding: 8px;
+            }
+
+            .tab-btn {
+                min-width: 240px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .daily-rhythm {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-reference summary,
+            .card-header,
+            .card-body-inner,
+            .support-card,
+            .theory-card {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .reference-body {
+                padding: 0 16px 16px;
+            }
+
+            .tab-btn {
+                min-width: 208px;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(23, 33, 29, 0.18);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-eyebrow">7 ทฤษฎี x 21 วัน x ก่อนสงกรานต์</div>
+            <h1>รีดไขมันแบบไม่ต้องกินคลีนจ๋า<br>และไม่ต้องออกหนัก</h1>
+            <p class="hero-copy">
+                ตารางนี้ยึดหลัก RTS ให้มากที่สุด: เปิดวงจรเผาผลาญใน 60 นาทีแรก, กินเรียงผัก → โปรตีน → คาร์บ, เว้นมื้อ 4 ชั่วโมง,
+                ปิดครัวก่อน 20:00, ขยับตัว 7 นาทีหลังอาหาร, และคุมสัดส่วน 40-30-30 ให้ทำได้จริงในชีวิตประจำวัน
+            </p>
+
+            <div class="constraint-strip">
+                <div class="constraint-pill">ไม่กินคลีน 100%</div>
+                <div class="constraint-pill">ไม่ต้องคาร์ดิโอหนัก</div>
+                <div class="constraint-pill">ไม่พึ่งยาลด</div>
+            </div>
+
+            <div class="daily-rhythm">
+                <div class="rhythm-item">
+                    <strong>60 นาทีแรก</strong>
+                    <span>ดื่มน้ำ 400-600 มล. แล้วตามด้วยโปรตีนเร็ว 1 เสิร์ฟทันที</span>
+                </div>
+                <div class="rhythm-item">
+                    <strong>ทุกมื้อ</strong>
+                    <span>เริ่มด้วยผัก 5-7 คำ ต่อด้วยโปรตีน 1-1.5 ฝ่ามือ แล้วค่อยคาร์บ 1 กำปั้น</span>
+                </div>
+                <div class="rhythm-item">
+                    <strong>ระหว่างมื้อ</strong>
+                    <span>เว้น 4 ชั่วโมงเต็ม ดื่มได้เฉพาะน้ำเปล่าหรือชาไม่หวาน</span>
+                </div>
+                <div class="rhythm-item">
+                    <strong>ก่อนนอน</strong>
+                    <span>มื้อสุดท้ายไม่เกิน 20:00 เดินเบา ๆ แล้วลดหน้าจอก่อนนอน 45 นาที</span>
+                </div>
+            </div>
+        </header>
+
+        <details class="quick-reference" open>
+            <summary>
+                <div class="summary-copy">
+                    <span>Quick Reference: 7 ทฤษฎีที่ต้องใช้ทุกวัน</span>
+                    <span>กดพับได้ถ้าอยากเห็นเฉพาะตาราง 21 วัน แต่ทุกการ์ดด้านล่างจะอิงกฎเหล่านี้เหมือนกันทั้งหมด</span>
+                </div>
+                <span class="summary-toggle">⌄</span>
+            </summary>
+            <div class="reference-body">
+                <div class="theory-grid" id="theoryGrid"></div>
+            </div>
+        </details>
+
+        <section class="support-grid">
+            <article class="support-card ratio-guide">
+                <div>
+                    <h2>Ratio Guide 40-30-30</h2>
+                    <p>ใช้เป็นภาพจำทุกมื้อเพื่อให้โปรตีนพอ อิ่มนานขึ้น และคุมอินซูลินง่ายขึ้น ถ้าวันไหนมีออกกำลังกายค่อยดันโปรตีนขึ้นเป็นประมาณ 45%</p>
+                </div>
+                <div class="ratio-bar" aria-label="สัดส่วน 40 30 30">
+                    <div class="ratio-segment protein">40%</div>
+                    <div class="ratio-segment veg">30%</div>
+                    <div class="ratio-segment carb">30%</div>
+                </div>
+                <div class="ratio-notes">
+                    <div><span class="ratio-dot protein"></span><span><strong>โปรตีน 40%</strong> เช่น อกไก่ ปลา ไข่ กรีกโยเกิร์ต เต้าหู้ ทูน่า</span></div>
+                    <div><span class="ratio-dot veg"></span><span><strong>ผัก 30%</strong> ใช้ได้ทั้งผักสด ผักลวก ซุปผัก ต้มจืด หรือสลัดถุง</span></div>
+                    <div><span class="ratio-dot carb"></span><span><strong>คาร์บดี 30%</strong> เช่น ข้าวกล้อง มัน ฟักทอง ข้าวโพด ขนมปังโฮลวีต</span></div>
+                </div>
+            </article>
+
+            <article class="support-card protein-bank">
+                <div>
+                    <h2>โปรตีนเร็วตอนเช้า</h2>
+                    <p>ถ้ายังหาอาหารเช้าไม่ได้ ให้รีบปักหมุดโปรตีนก่อนตามทฤษฎีข้อ 1 แล้วค่อยกินมื้อเช้าเต็มอีกทีภายใน 1-2 ชั่วโมง</p>
+                </div>
+                <ul class="protein-list">
+                    <li><strong>หาได้ง่ายมาก:</strong> ไข่ต้ม 2 ฟอง, กรีกโยเกิร์ต 1 ถ้วย, นมโปรตีนสูงไม่หวาน 1 ขวด</li>
+                    <li><strong>ถ้าอยู่ร้านสะดวกซื้อ:</strong> อกไก่แพ็ก, ทูน่าในน้ำแร่, เต้าหู้ขาวพร้อมทาน, ไข่ออนเซ็น</li>
+                    <li><strong>ถ้ารีบมาก:</strong> เวย์ 1/2-1 สกูป หรือโยเกิร์ตรสธรรมชาติแล้วค่อยหาอาหารมื้อเช้าตามทีหลัง</li>
+                    <li><strong>ถ้าไม่มีจริง ๆ:</strong> นมถั่วเหลืองไม่หวาน + ไข่ 1 ฟอง ยังดีกว่าเริ่มวันด้วยกาแฟหวานหรือขนมปังเปล่า</li>
+                </ul>
+            </article>
+
+            <article class="support-card">
+                <div>
+                    <h2>ทางเลือกเวลาของไม่มี</h2>
+                    <p>ใช้หลักสลับหมวดแทนการหลุดทั้งมื้อ ขอแค่ยังรักษาลำดับผัก → โปรตีน → คาร์บ และอย่ากลับไปกินหวานจัดตอนหิว</p>
+                </div>
+                <ul class="support-list">
+                    <li><strong>ผักไม่มี:</strong> แตงกวา, ผักลวก, แกงจืด, ซุปเห็ด, ซุปหน่อไม้ หรือสาหร่ายถ้วยเล็ก</li>
+                    <li><strong>โปรตีนไม่มี:</strong> ไข่ต้ม, อกไก่แพ็ก, ทูน่าในน้ำแร่, เต้าหู้, ปลาย่าง, กุ้งลวก</li>
+                    <li><strong>คาร์บดีไม่มี:</strong> ลดปริมาณข้าวขาวให้เหลือครึ่งทัพพี หรือสลับเป็นข้าวโพด ฟักทอง มันเผาแทน</li>
+                    <li><strong>กินนอกบ้าน:</strong> สั่งหวานน้อย น้ำมันน้อย ขอผักเพิ่ม และลอกหนัง/ตัดมันออกให้มากที่สุด</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="plan-shell">
+            <div class="plan-head">
+                <div>
+                    <h2>ตารางอาหาร 21 วัน</h2>
+                    <p>ทุกการ์ดใส่ reminder ตอนเช้า, ลำดับการกิน, ratio badge และทางเลือกสำรองไว้แล้ว เพื่อให้ใช้ได้จริงแม้วันไหนหาอาหารไม่ครบ</p>
+                </div>
+            </div>
+
+            <nav class="tab-bar" id="weekTabs" aria-label="สลับสัปดาห์"></nav>
+            <div id="weekPanels"></div>
+        </section>
+
+        <p class="footer-note">
+            ตารางนี้ตั้งต้นจากวันที่ 24 มีนาคม 2026 ถึง 13 เมษายน 2026 เพื่อให้ครบ 21 วันก่อนช่วงสงกรานต์
+            ถ้ามีโรคประจำตัว, ตั้งครรภ์, ให้นมบุตร หรือมีข้อจำกัดด้านการกิน ควรปรับร่วมกับแพทย์หรือผู้เชี่ยวชาญก่อนใช้ตามตรง
+        </p>
+    </div>
+
+    <script>
+        const theoryNotes = [
+            {
+                number: "1",
+                tag: "เปิดระบบ",
+                title: "#เปิดวงจรเผาผลาญใน 60 นาทีแรก",
+                copy: "อย่าเริ่มวันด้วยคาร์บหวานล้วน เพราะอินซูลินจะพุ่งเร็วและทำให้ทั้งวันคุมหิวยากขึ้น",
+                checks: [
+                    "ตื่นแล้วดื่มน้ำ 400-600 มล.",
+                    "ตามด้วยโปรตีนเร็ว 1 เสิร์ฟ เช่น ไข่, กรีกโยเกิร์ต, เวย์, นมโปรตีนสูงไม่หวาน"
+                ],
+                outcome: "ทำต่อเนื่อง 7 วันแรก จะเริ่มรู้สึกว่าพุงนิ่มลงและยุบง่ายขึ้น"
+            },
+            {
+                number: "2",
+                tag: "ลำดับมื้อ",
+                title: "#ลำดับอาหาร 3 ชั้น",
+                copy: "เปลี่ยนแค่ลำดับการกินก็ช่วยให้คุมน้ำตาลหลังมื้อและลดโอกาสเก็บไขมันได้ดีขึ้น",
+                checks: [
+                    "เริ่มที่ผัก 5-7 คำ",
+                    "ต่อด้วยโปรตีน 1-1.5 ฝ่ามือ แล้วค่อยคาร์บ 1 กำปั้น"
+                ],
+                outcome: "ภายใน 14 วัน หลายคนจะเริ่มเห็นรอบเอวลดลงได้ประมาณ 1-2 นิ้ว"
+            },
+            {
+                number: "3",
+                tag: "เว้นมื้อ",
+                title: "#ช่องว่าง 4 ชั่วโมง",
+                copy: "การกินจุกจิกทั้งวันทำให้ร่างกายไม่ค่อยได้ดึงไขมันเก่าออกมาใช้จริง",
+                checks: [
+                    "มื้อเช้า → เที่ยง เว้น 4 ชั่วโมง",
+                    "มื้อเที่ยง → เย็น เว้น 4 ชั่วโมง และระหว่างนั้นดื่มแต่น้ำหรือชาไม่หวาน"
+                ],
+                outcome: "ช่วยให้ร่างกายมีช่วงใช้งานไขมันสะสมประมาณ 8-10 ชั่วโมงต่อวัน"
+            },
+            {
+                number: "4",
+                tag: "ปิดครัว",
+                title: "#ปิดครัวก่อน 2 ทุ่ม",
+                copy: "มื้อดึกมักลากคอร์ติซอลและรบกวนการนอน ทำให้พุงลงช้ากว่าที่ควร",
+                checks: [
+                    "มื้อสุดท้ายไม่เกิน 20:00",
+                    "หลังมื้อดื่มน้ำ 1 แก้ว เดินเบา ๆ 5-7 นาที และลดแสงหน้าจอก่อนนอน 45 นาที"
+                ],
+                outcome: "การนอนดีขึ้นมีผลกับรอบเอวพอ ๆ กับการไปออกหนักบางแบบ"
+            },
+            {
+                number: "5",
+                tag: "หลังมื้อ",
+                title: "#7 นาทีหลังมื้อ",
+                copy: "ไม่จำเป็นต้องออกแรงหนัก แค่ไม่นั่งนิ่งทันทีหลังอาหารก็ช่วยเรื่องน้ำตาลได้มาก",
+                checks: [
+                    "เดิน 400-600 ก้าว",
+                    "หรือเก็บโต๊ะ ล้างจาน จัดครัวให้ครบ 7 นาที"
+                ],
+                outcome: "การขยับเล็ก ๆ หลังมื้อช่วยลดน้ำตาลหลังอาหารได้ทันที"
+            },
+            {
+                number: "6",
+                tag: "สัดส่วน",
+                title: "#กฎสัดส่วนลดไว 40-30-30",
+                copy: "ไม่ต้องกินคลีนจ๋า แต่ต้องคุมสัดส่วนให้โปรตีนเด่น ผักพอ และคาร์บไม่ล้น",
+                checks: [
+                    "โปรตีน 40% ผัก 30% คาร์บดี 30%",
+                    "วันออกกำลังกายเพิ่มโปรตีนขึ้นเล็กน้อยได้ถึงประมาณ 45%"
+                ],
+                outcome: "ช่วยให้อิ่มนาน คุมอินซูลินได้ง่าย และลดไขมันแบบไม่โหดเกินไป"
+            },
+            {
+                number: "7",
+                tag: "RTS",
+                title: "#RTS ลดไวไม่โยโย่",
+                copy: "เป้าหมายไม่ใช่แค่ลดกิโล แต่เป็นการรีเซ็ตพฤติกรรมให้ทำต่อได้จริงหลังสงกรานต์",
+                checks: [
+                    "Reset: รีจังหวะการกินและการนอน",
+                    "Transform: หุ่นเปลี่ยนโดยไม่ต้องกินคลีน 100%",
+                    "Sustainable: เลือกวิธีที่ยังทำต่อได้ในชีวิตจริง"
+                ],
+                outcome: "ครบ 21 วันควรเห็นความต่างทั้งเรื่องหิว, รอบเอว และความนิ่งของพลังงานระหว่างวัน"
+            }
+        ];
+
+        const weekMeta = [
+            { week: 1, title: "สัปดาห์ 1", range: "24-30 มี.ค.", subtitle: "Reset ระบบเผาผลาญ" },
+            { week: 2, title: "สัปดาห์ 2", range: "31 มี.ค.-6 เม.ย.", subtitle: "Transform รอบเอว" },
+            { week: 3, title: "สัปดาห์ 3", range: "7-13 เม.ย.", subtitle: "Sustainable ก่อนสงกรานต์" }
+        ];
+
+        const slotMeta = {
+            morning: { label: "มื้อเช้า", time: "หลังตื่น 1-2 ชม." },
+            noon: { label: "มื้อเที่ยง", time: "ห่างจากมื้อเช้า 4 ชม." },
+            evening: { label: "มื้อเย็น", time: "มื้อสุดท้ายก่อน 20:00" }
+        };
+
+        const meal = (main, swaps) => ({ main, swaps });
+        const day = (date, week, focus, theory, proteinKick, between, kitchen, meals, note) => ({
+            date,
+            week,
+            focus,
+            theory,
+            proteinKick,
+            between,
+            kitchen,
+            meals,
+            note
+        });
+
+        const planDays = [
+            day(
+                "2026-03-24",
+                1,
+                "Reset วันแรกให้เช้าไม่หลุดไปทางหวาน",
+                ["T1 เปิดวงจร", "T3 เว้น 4 ชม.", "T5 เดิน 7 นาที"],
+                "ไข่ต้ม 2 ฟอง หรือกรีกโยเกิร์ต 1 ถ้วย หรือเวย์ 1/2-1 สกูป",
+                "ระหว่างมื้อให้ดื่มน้ำเปล่าหรือชาไม่หวานเท่านั้น",
+                "ปิดครัว 19:30 และลดหน้าจอก่อนนอน",
+                {
+                    morning: meal(
+                        "ไข่ต้ม 2 ฟอง + กรีกโยเกิร์ต 1 ถ้วยเล็ก + ฝรั่ง 1/2 ลูก",
+                        [
+                            "7-Eleven: ไข่ต้มคู่ + โยเกิร์ตรสธรรมชาติ + ฝรั่งหั่น",
+                            "คาเฟ่/ออฟฟิศ: อเมริกาโนไม่หวาน + ไข่ต้ม + โยเกิร์ต",
+                            "ถ้าไม่มีผลไม้: สลับเป็นแตงกวาหรือมะเขือเทศแทนก่อน"
+                        ]
+                    ),
+                    noon: meal(
+                        "สลัดอกไก่ 1 จาน + ข้าวกล้อง 1 ทัพพีเล็ก + ซุปใส 1 ถ้วย",
+                        [
+                            "ร้านตามสั่ง: ขออกไก่ย่างหรือไก่ต้ม + ผักเยอะ + ข้าวครึ่ง",
+                            "ร้านสะดวกซื้อ: อกไก่แพ็ก + ข้าวกล้อง + สลัดพร้อมทาน",
+                            "ถ้าหาผักไม่ได้: ใช้แกงจืดหรือน้ำซุปผักแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ปลานึ่งมะนาว 1 ชิ้น + ผักลวก 1 ถ้วย + มันหวาน 1/2 ลูก",
+                        [
+                            "ร้านข้าวแกง: ปลา/ไก่นึ่ง + ต้มจืด + ข้าวครึ่งทัพพี",
+                            "ตลาด: ปลาย่าง + แตงกวา + มันเผา",
+                            "ถ้าไม่มีปลา: ใช้อกไก่ย่างหรือเต้าหู้ขาวแทนได้"
+                        ]
+                    )
+                },
+                "วันแรกหิวช่วงบ่ายได้ง่าย อย่าแก้ด้วยขนมหวาน ให้เติมน้ำก่อนและรอให้ครบช่องว่าง 4 ชั่วโมง"
+            ),
+            day(
+                "2026-03-25",
+                1,
+                "เริ่มใช้ลำดับผัก → โปรตีน → คาร์บ ให้เป็นอัตโนมัติ",
+                ["T1 โปรตีนเช้า", "T2 ลำดับมื้อ", "T5 ขยับหลังมื้อ"],
+                "นมโปรตีนสูงไม่หวาน 1 ขวด หรือไข่ออนเซ็น 2 ฟอง",
+                "จิบน้ำตลอดช่วงห่างมื้อแทนการหาของกรุบกรอบ",
+                "เย็นนี้จบมื้อไม่เกิน 19:45",
+                {
+                    morning: meal(
+                        "แซนด์วิชโฮลวีตทูน่า 1 ชิ้น + ไข่ลวก 1 ฟอง + ผักสลัด 1 กำมือ",
+                        [
+                            "ร้านสะดวกซื้อ: แซนด์วิชโฮลวีต + ไข่ต้ม + สลัดถุงเล็ก",
+                            "คาเฟ่: แซนด์วิชทูน่าขอซอสครึ่งเดียว + สลัดข้างจาน",
+                            "ถ้าไม่มีโฮลวีต: ใช้ขนมปังธรรมดา 1-2 แผ่นแต่คุมปริมาณคาร์บให้เล็กลง"
+                        ]
+                    ),
+                    noon: meal(
+                        "ไก่ย่างลอกหนัง 1 น่อง + ส้มตำไทยหวานน้อย 1 จาน + ข้าวเหนียว 1 ปั้นเล็ก",
+                        [
+                            "ร้านอีสาน: ขอไม่ใส่น้ำตาลเพิ่มและเริ่มจากผักในจานก่อน",
+                            "ร้านสะดวกซื้อ: อกไก่แพ็ก + ส้มตำแตง + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีส้มตำ: ใช้แตงกวา ผักสด หรือซุปหน่อไม้แทนส่วนผัก"
+                        ]
+                    ),
+                    evening: meal(
+                        "สุกี้น้ำไก่ 1 ชาม เน้นผัก + น้ำจิ้มครึ่งเดียว + วุ้นเส้นเล็กน้อย",
+                        [
+                            "ร้านสุกี้: ขอผักเพิ่ม ไข่ 1 ฟอง และน้ำจิ้มแยก",
+                            "ร้านสะดวกซื้อ: สลัดอกไก่ + ซุปมิโซะ + ไข่ต้ม",
+                            "ถ้าไม่มีสุกี้: ใช้แกงจืดเต้าหู้หมูสับ + ผักลวกแทน"
+                        ]
+                    )
+                },
+                "หลังทุกมื้อให้เดิน 400-600 ก้าว หรือเก็บโต๊ะล้างแก้วอย่างน้อย 7 นาที"
+            ),
+            day(
+                "2026-03-26",
+                1,
+                "คุมช่วงเช้าด้วยอาหารอุ่น ๆ แต่ยังต้องได้โปรตีนพอก่อน",
+                ["T1 น้ำ+โปรตีน", "T3 ไม่กินจุกจิก", "T6 40-30-30"],
+                "กรีกโยเกิร์ต 1 ถ้วย หรือทูน่าในน้ำแร่ 1/2 กระป๋องถ้ายังหาอาหารเช้าไม่ได้",
+                "ช่วงบ่ายดื่มชาไม่หวานได้ แต่ยังไม่เติมขนม",
+                "มื้อเย็นเลือกน้ำใสเพื่อให้ท้องเบา",
+                {
+                    morning: meal(
+                        "โจ๊กหมู 1 ชาม + ไข่ลวก 1 ฟอง + แตงกวา/ผักลวกแนม",
+                        [
+                            "ร้านโจ๊ก: ขอไม่ปาท่องโก๋ ไม่กระเทียมเจียวเพิ่ม",
+                            "ร้านสะดวกซื้อ: โจ๊กถ้วย + ไข่ต้ม + แตงกวาหั่น",
+                            "ถ้าหาผักไม่ได้: เติมสาหร่ายหรือซุปใสแทนก่อน"
+                        ]
+                    ),
+                    noon: meal(
+                        "กะเพราอกไก่ผัดน้ำน้อย 1 จาน + ข้าวกล้อง 1 ทัพพี + แตงกวาเยอะ ๆ",
+                        [
+                            "ร้านตามสั่ง: สั่งผัดน้ำ ไม่ไข่ดาว และเริ่มกินแตงกวาก่อน",
+                            "ร้านสะดวกซื้อ: ข้าวกะเพราอกไก่ + ไข่ต้มเพิ่ม 1 ฟอง",
+                            "ถ้าไม่มีข้าวกล้อง: ใช้ข้าวขาวครึ่งจานแล้วคุมคาร์บให้เหลือ 1 กำปั้น"
+                        ]
+                    ),
+                    evening: meal(
+                        "ยำทูน่า 1 จาน + ซุปเห็ด/แกงจืด 1 ถ้วย + ข้าวโพด 1/2 ฝัก",
+                        [
+                            "ร้านยำ: ขอยำไม่หวานมากและเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ทูน่าในน้ำแร่ + สลัด + ซุปเห็ด",
+                            "ถ้าไม่มีทูน่า: สลับเป็นลาบไก่หรือเต้าหู้ขาวได้"
+                        ]
+                    )
+                },
+                "วันที่เริ่มเบื่อเมนูง่าย ๆ ให้เปลี่ยนรสชาติได้ แต่โครงลำดับอาหารยังต้องเหมือนเดิม"
+            ),
+            day(
+                "2026-03-27",
+                1,
+                "วันนี้เน้นเว้นมื้อให้นิ่ง แล้วใช้มื้อเย็นเบาเพื่อลงพุงง่ายขึ้น",
+                ["T2 ผักก่อน", "T4 ปิดครัว", "T5 หลังมื้อ"],
+                "ไข่ต้ม 2 ฟอง หรือเวย์ 1/2 สกูป + นมถั่วเหลืองไม่หวาน",
+                "ถ้าหิวก่อนเที่ยง ให้เติมน้ำ 1 แก้วใหญ่แล้วรอครบเวลา",
+                "คืนนี้มื้อสุดท้ายไม่เกิน 19:30",
+                {
+                    morning: meal(
+                        "มันหวานเผา 1 ลูกเล็ก + อกไก่รมควัน 1 แพ็กเล็ก + เอดามาเมะ 1/2 ถ้วย",
+                        [
+                            "ร้านสะดวกซื้อ: มันญี่ปุ่นอบ + อกไก่พริกไทยดำ",
+                            "ตลาด: มันเผา + ไก่ฉีกไม่หนัง",
+                            "ถ้าไม่มีมัน: ใช้ฟักทองนึ่งหรือข้าวโพดแทนคาร์บดี"
+                        ]
+                    ),
+                    noon: meal(
+                        "เกาเหลาหมูตุ๋น 1 ชาม + ข้าวกล้อง 1 ทัพพี + ผักสดแนม",
+                        [
+                            "ร้านก๋วยเตี๋ยว: สั่งเกาเหลาไม่กระเทียมเจียวแล้วเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ซุปน้ำใส + ไข่ต้ม + ข้าวกล้องพร้อมทาน",
+                            "ถ้าไม่มีข้าวกล้อง: ลดเส้นหรือข้าวขาวให้แค่ 1 กำปั้น"
+                        ]
+                    ),
+                    evening: meal(
+                        "ลาบปลา/ลาบไก่ 1 จาน + ผักสด 1 กำมือ + ข้าวเหนียว 1/2 ปั้น",
+                        [
+                            "ร้านอีสาน: ขอรสไม่หวานและเพิ่มผักสด",
+                            "ร้านสะดวกซื้อ: อกไก่ฉีก + สลัด + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีลาบ: ใช้น้ำตกหมูสันในหรือทูน่าคลุกพริกมะนาวแทน"
+                        ]
+                    )
+                },
+                "เย็นนี้ห้ามปล่อยให้มื้อดึกเด้งกลับมา ถ้าหิวดึกให้ดื่มน้ำอุ่นหรือชาคาโมมายล์ไม่หวาน"
+            ),
+            day(
+                "2026-03-28",
+                1,
+                "จัดมื้อสบาย ๆ วันหยุด แต่ยังคุมสัดส่วนและลำดับอาหาร",
+                ["T1 โปรตีนเร็ว", "T2 ลำดับ 3 ชั้น", "T6 สัดส่วน"],
+                "กรีกโยเกิร์ต 1 ถ้วย หรือไข่ออนเซ็น 2 ฟองก่อนออกจากบ้าน",
+                "เว้นช่องว่าง 4 ชั่วโมงแม้จะเป็นวันหยุด",
+                "ปิดครัวเร็วขึ้นเพื่อให้พรุ่งนี้ตื่นเบา",
+                {
+                    morning: meal(
+                        "ข้าวต้มปลา 1 ชาม + ไข่ต้ม 1 ฟอง + ผักลวกเล็กน้อย",
+                        [
+                            "ร้านข้าวต้ม: สั่งไม่ใส่กระเทียมเจียวและเพิ่มขึ้นฉ่าย/ผักข้างจาน",
+                            "ร้านสะดวกซื้อ: โจ๊กไก่ + ไข่ต้ม + แตงกวาหั่น",
+                            "ถ้าไม่มีปลา: ใช้กุ้งหรืออกไก่ในเมนูน้ำใสแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวมันไก่ 1 จานแบบไก่ต้ม ข้าวน้อย ขอแตงกวาเพิ่ม",
+                        [
+                            "ร้านข้าวมันไก่: เลือกเนื้ออกหรือน่องไร้หนังและใช้น้ำจิ้มครึ่งเดียว",
+                            "ร้านสะดวกซื้อ: ข้าวมันไก่ + แตงกวา + ไข่ต้มเพิ่ม",
+                            "ถ้าข้าวเยอะเกิน: ตักออกให้เหลือประมาณ 1 กำปั้น"
+                        ]
+                    ),
+                    evening: meal(
+                        "แกงจืดเต้าหู้หมูสับ 1 ชาม + ข้าวกล้อง 1/2 ทัพพี + แตงกวา",
+                        [
+                            "ร้านข้าวแกง: แกงจืดเต้าหู้ + ผักลวก + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: ซุปมิโซะ + เต้าหู้ไข่ + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีแกงจืด: ใช้ซุปเห็ดหรือสาหร่ายน้ำใสแทน"
+                        ]
+                    )
+                },
+                "วันหยุดมักหลุดเพราะกินเพลิน ให้ย้ำกับตัวเองว่าแค่คุมลำดับการกินก็ช่วยได้เยอะแล้ว"
+            ),
+            day(
+                "2026-03-29",
+                1,
+                "วันรีเซ็ตปลายสัปดาห์ เน้นความเรียบง่ายและอิ่มนาน",
+                ["T3 ช่องว่าง 4 ชม.", "T5 เดินหลังมื้อ", "T7 RTS"],
+                "นมโปรตีนสูงไม่หวาน หรือทูน่าในน้ำแร่ 1/2 กระป๋องถ้าตื่นสาย",
+                "ระหว่างมื้อไม่เติมผลไม้หวานหรือกาแฟหวาน",
+                "คืนนี้เน้นอาหารย่อยง่าย เตรียมพร้อมสัปดาห์ 2",
+                {
+                    morning: meal(
+                        "กรีกโยเกิร์ต 1 ถ้วย + เอดามาเมะ 1/2 ถ้วย + กล้วย 1/2 ลูก",
+                        [
+                            "ร้านสะดวกซื้อ: โยเกิร์ตโปรตีนสูง + ถั่วแระ + กล้วยลูกเล็ก",
+                            "คาเฟ่: โยเกิร์ตธรรมชาติ + ไข่ต้ม 1-2 ฟอง",
+                            "ถ้าไม่มีโยเกิร์ต: ใช้นมโปรตีนสูง + ไข่ต้มแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวหน้าอกไก่ย่าง 1 จาน + สลัดผัก 1 ถ้วย + ซุปใส",
+                        [
+                            "ร้านตามสั่ง: ไก่ย่างไม่หนัง + ข้าวครึ่ง + แตงกวาเพิ่ม",
+                            "ร้านสะดวกซื้อ: อกไก่รมควัน + ข้าวกล้อง + สลัดพร้อมทาน",
+                            "ถ้าหาผักสลัดไม่ได้: ใช้ต้มจืดหรือส้มตำแตงแทนส่วนผัก"
+                        ]
+                    ),
+                    evening: meal(
+                        "ปลาซาบะย่าง 1 ชิ้น + สลัดผัก + ฟักทองนึ่ง 3-4 ชิ้น",
+                        [
+                            "ร้านญี่ปุ่น: ปลาย่าง + ข้าวครึ่ง + สลัดหรือมิโซะ",
+                            "ร้านสะดวกซื้อ: ปลาซาบะ + ฟักทองนึ่ง + สลัดถุง",
+                            "ถ้าไม่มีปลา: ใช้เต้าหู้ทรงเครื่องหรือไข่ต้ม 2 ฟองแทน"
+                        ]
+                    )
+                },
+                "จบสัปดาห์แรกให้ดูเรื่องเวลา ถ้ายังมีมื้อดึกอยู่ ให้แก้ตรงนั้นก่อนค่อยคิดเรื่องแคลอรี"
+            ),
+            day(
+                "2026-03-30",
+                1,
+                "ปิดสัปดาห์ด้วยมื้อที่ทำตามได้ง่ายก่อนเข้าสู่ช่วง Transform",
+                ["T1 เช้าต้องโปรตีน", "T4 ปิดครัว", "T7 ทำต่อได้จริง"],
+                "ไข่ต้ม 2 ฟอง หรือกรีกโยเกิร์ตถ้วยเล็กก่อนเริ่มงาน",
+                "วันนี้ลองจับเวลาเว้น 4 ชั่วโมงจริงทุกมื้อ",
+                "เข้านอนเร็วขึ้นอีกนิดเพื่อรีเซ็ตฮอร์โมนหิว",
+                {
+                    morning: meal(
+                        "ขนมปังโฮลวีต 2 แผ่น + ทูน่าในน้ำแร่ 1/2-1 กระป๋อง + ผักกาดหอม",
+                        [
+                            "ร้านสะดวกซื้อ: แซนด์วิชทูน่าโฮลวีต + ไข่ต้ม",
+                            "ตลาด: ขนมปังโฮลวีต + ไก่ฉีกไม่หนัง",
+                            "ถ้าไม่มีโฮลวีต: ใช้ข้าวครึ่งทัพพีแทนแล้วลดคาร์บมื้ออื่น"
+                        ]
+                    ),
+                    noon: meal(
+                        "ต้มแซ่บไก่ 1 ชาม + ผักสด 1 กำมือ + ข้าวกล้อง 1 ทัพพี",
+                        [
+                            "ร้านอีสาน: ต้มแซ่บ + ไก่ย่าง + ข้าวครึ่ง",
+                            "ร้านข้าวแกง: ต้มยำไก่น้ำใส + ผักลวก + ข้าวน้อย",
+                            "ถ้าไม่มีข้าวกล้อง: ใช้ข้าวขาวครึ่งจานหรือข้าวโพดแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "สลัดอกไก่ 1 จาน + ไข่ต้ม 1 ฟอง + ข้าวโพด 1/2 ฝัก",
+                        [
+                            "ร้านสะดวกซื้อ: สลัดอกไก่พร้อมทาน + ไข่ต้ม + ข้าวโพดถ้วยเล็ก",
+                            "ตลาด: อกไก่ย่าง + แตงกวา + ข้าวโพดต้ม",
+                            "ถ้าไม่มีสลัด: ใช้ผักลวกหรือแกงจืดแทนได้"
+                        ]
+                    )
+                },
+                "ครบสัปดาห์แรกแล้ว เป้าหมายคือให้เช้านิ่งขึ้นและไม่หิววูบทั้งวัน มากกว่าตัวเลขบนตาชั่ง"
+            ),
+            day(
+                "2026-03-31",
+                2,
+                "เข้าสู่ช่วง Transform เพิ่มความคมของสัดส่วนทุกมื้อ",
+                ["T2 ผักก่อนเสมอ", "T6 40-30-30", "T5 ขยับหลังมื้อ"],
+                "นมโปรตีนสูง 1 ขวด หรือไข่ออนเซ็น 2 ฟองก่อนกาแฟ",
+                "ช่วงบ่ายถ้าหิว ให้เช็กก่อนว่ามื้อเที่ยงมีโปรตีนพอหรือไม่",
+                "เย็นนี้จบมื้อเร็วแล้วเดิน 7 นาทีทันที",
+                {
+                    morning: meal(
+                        "ข้าวกล้อง 1 ทัพพี + ไข่คน 2 ฟอง + ผักลวก 1 จานเล็ก",
+                        [
+                            "ร้านตามสั่ง: ไข่คน/ไข่เจียวไม่อมน้ำมัน + ข้าวน้อย + ผักแนม",
+                            "ร้านสะดวกซื้อ: ข้าวกล้อง + ไข่ต้ม + ฟักทองนึ่ง",
+                            "ถ้าไม่มีผัก: ใช้แตงกวาหรือซุปผักแทนก่อน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ไก่อบหรือไก่ย่าง 1 ฝ่ามือครึ่ง + ต้มจืด 1 ถ้วย + ข้าว 1 กำปั้น",
+                        [
+                            "ร้านข้าวแกง: เลือกกับข้าวแบบต้ม/ย่าง แล้วเริ่มจากต้มจืดก่อน",
+                            "ร้านสะดวกซื้อ: อกไก่แพ็ก + ซุปสาหร่าย + ข้าวกล้อง",
+                            "ถ้าไม่มีไก่: ใช้หมูสันในหรือปลาแทนสัดส่วนเดียวกัน"
+                        ]
+                    ),
+                    evening: meal(
+                        "น้ำตกหมูสันใน 1 จาน + ผักสด 1 กำมือ + ข้าวเหนียว 1/2 ปั้น",
+                        [
+                            "ร้านอีสาน: ขอเนื้อล้วนและไม่หวาน",
+                            "ตลาด: หมูย่างไม่ติดมัน + แตงกวา + ข้าวเหนียวครึ่งปั้น",
+                            "ถ้าไม่มีหมูสันใน: ใช้ไก่ย่างหรือทูน่าคลุกมะนาวแทน"
+                        ]
+                    )
+                },
+                "สัปดาห์นี้ให้เคร่งกับสัดส่วนมากขึ้น แต่ยังไม่ต้องตึงจนกินยาก"
+            ),
+            day(
+                "2026-04-01",
+                2,
+                "ใช้ของหาง่ายในร้านสะดวกซื้อ แต่ยังคุมรูปแบบมื้อให้ครบ",
+                ["T1 โปรตีนเช้าง่าย", "T3 หยุดจุกจิก", "T6 สัดส่วน"],
+                "นมโปรตีนสูงไม่หวาน 1 ขวด + ไข่ต้ม 1 ฟอง ถ้าต้องรีบออกบ้าน",
+                "ตลอดวันยังดื่มได้เฉพาะน้ำเปล่าและชาไม่หวานระหว่างมื้อ",
+                "มื้อเย็นให้ลดคาร์บลงเล็กน้อยถ้ากลางวันเผลอเกินไป",
+                {
+                    morning: meal(
+                        "นมโปรตีนสูงไม่หวาน 1 ขวด + ไข่ต้ม 2 ฟอง + แอปเปิลเขียว 1/2 ลูก",
+                        [
+                            "ร้านสะดวกซื้อ: หยิบได้ครบในจุดเดียวและจบใน 5 นาที",
+                            "คาเฟ่: ลาเต้ไม่หวาน + ไข่ต้ม + โยเกิร์ตธรรมชาติ",
+                            "ถ้าไม่มีแอปเปิล: ใช้แตงกวา ฟักทอง หรือกล้วยครึ่งลูกแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "เกาเหลาเย็นตาโฟ/น้ำใส 1 ชาม + ข้าว 1/2-1 ทัพพี + ผักลวกเพิ่ม",
+                        [
+                            "ร้านก๋วยเตี๋ยว: สั่งเกาเหลาไม่ลูกชิ้นทอดและเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ซุปน้ำใส + ทูน่า/อกไก่ + ข้าวพร้อมทานครึ่งกล่อง",
+                            "ถ้าไม่มีเกาเหลา: ใช้ต้มจืดเต้าหู้หมูสับแทนโครงเดียวกัน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ยำวุ้นเส้นทะเล 1 จาน + ไข่ต้ม 1 ฟอง + แตงกวา",
+                        [
+                            "ร้านยำ: ขอไม่หวานและเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ยำวุ้นเส้นพร้อมทาน + ไข่ต้ม + สลัดถ้วยเล็ก",
+                            "ถ้าไม่มีวุ้นเส้น: ยำทูน่าหรือลาบไก่ก็ยังเข้าหลัก"
+                        ]
+                    )
+                },
+                "ถ้าวันนี้เร่งรีบ ให้ยึดกฎเดียวก่อนคือห้ามเริ่มวันด้วยกาแฟหวานหรือเบเกอรี่อย่างเดียว"
+            ),
+            day(
+                "2026-04-02",
+                2,
+                "คุมลำดับการกินในมื้อที่มีข้าว เพื่อไม่ให้พลังงานสวิงเร็ว",
+                ["T2 ผักก่อนทุกมื้อ", "T5 เดิน 7 นาที", "T6 40-30-30"],
+                "กรีกโยเกิร์ต 1 ถ้วย หรืออกไก่แพ็กเล็กถ้าต้องประชุมเช้า",
+                "วันนี้ตั้งใจเคี้ยวผักก่อนคาร์บทุกมื้อแบบไม่ข้าม",
+                "หลังมื้อเย็นอย่างน้อยเก็บครัวให้ครบ 7 นาที",
+                {
+                    morning: meal(
+                        "แซนด์วิชไข่/อกไก่โฮลวีต 1 ชิ้น + กรีกโยเกิร์ต 1 ถ้วย",
+                        [
+                            "ร้านสะดวกซื้อ: แซนด์วิชไก่โฮลวีต + โยเกิร์ตโปรตีนสูง",
+                            "คาเฟ่: แซนด์วิชไข่ขอซอสครึ่งเดียว + โยเกิร์ตรสธรรมชาติ",
+                            "ถ้าไม่มีโฮลวีต: ใช้ขนมปังธรรมดา 1 ชิ้นแล้วเสริมผักให้มากขึ้น"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวผัดอกไก่ผักรวม 1 จานแบบข้าวน้อย + ไข่ต้ม 1 ฟอง",
+                        [
+                            "ร้านตามสั่ง: สั่งผัดน้ำน้อยและเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ข้าวอกไก่ + สลัดพร้อมทาน + ไข่ต้ม",
+                            "ถ้าไม่มีข้าวผัด: ใช้กะเพราอกไก่ผัดน้ำโครงเดียวกัน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ต้มยำกุ้งน้ำใส 1 ชาม + ผักลวก + ข้าวกล้อง 1/2 ทัพพี",
+                        [
+                            "ร้านข้าวแกง: ต้มยำ/ต้มแซ่บน้ำใส + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: ซุปเผ็ดน้ำใส + อกไก่/ไข่ต้ม + ข้าวกล้องครึ่ง",
+                            "ถ้าไม่มีต้มยำ: ใช้แกงเลียงหรือแกงจืดแทน"
+                        ]
+                    )
+                },
+                "มื้อที่มีข้าวอย่ากินรวดเดียว เริ่มจากผักก่อนเสมอเพื่อให้ทฤษฎีข้อ 2 ทำงานจริง"
+            ),
+            day(
+                "2026-04-03",
+                2,
+                "เพิ่มโปรตีนให้ชัดเพื่อให้อิ่มยาวและไม่ไหลไปหาของหวาน",
+                ["T1 โปรตีนเช้า", "T3 เว้นมื้อ", "T6 โปรตีนเด่น"],
+                "ไข่ต้ม 2 ฟอง หรือเวย์ 1/2-1 สกูปทันทีหลังน้ำ",
+                "บ่ายนี้ห้ามเติมชาไข่มุกหรือกาแฟหวานระหว่างรอมื้อ",
+                "มื้อเย็นจบก่อน 20:00 แม้จะกลับบ้านช้า",
+                {
+                    morning: meal(
+                        "ข้าวต้มเห็ดไก่ฉีก 1 ชาม + ไข่ลวก 1 ฟอง",
+                        [
+                            "ร้านข้าวต้ม: ขอไม่กระเทียมเจียวและเพิ่มไก่ฉีก",
+                            "ร้านสะดวกซื้อ: โจ๊กไก่ + ไข่ต้ม + สาหร่าย",
+                            "ถ้าไม่มีไก่: ใช้เต้าหู้หรือปลาขาวในเมนูน้ำใสแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ลาบไก่ 1 จาน + ผักสด 1 กำมือ + ข้าวเหนียว 1 ปั้นเล็ก",
+                        [
+                            "ร้านอีสาน: ขอเนื้อไก่ล้วน ไม่หวาน เพิ่มผัก",
+                            "ร้านสะดวกซื้อ: อกไก่ฉีก + สลัด + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีลาบ: ใช้น้ำตกไก่หรือยำอกไก่แทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "เต้าหู้ทรงเครื่อง 1 จาน + ผักลวก 1 ถ้วย + ข้าว 1/2 กำปั้น",
+                        [
+                            "ร้านข้าวแกง: เต้าหู้/ผัดผัก + ต้มจืด + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: เต้าหู้ไข่ + ซุปเห็ด + สลัด",
+                            "ถ้าไม่มีเต้าหู้: ไข่ตุ๋นหรือปลาย่างก็ทดแทนโปรตีนได้"
+                        ]
+                    )
+                },
+                "วันที่ความอยากหวานมาแรง มักเกิดจากโปรตีนเที่ยงน้อยเกินไป ตรวจที่สัดส่วนก่อน ไม่ใช่โทษตัวเอง"
+            ),
+            day(
+                "2026-04-04",
+                2,
+                "ทำเมนูวันหยุดให้ยังอยู่ในกรอบ โดยไม่ต้องรู้สึกว่ากำลังกินคลีน",
+                ["T2 ลำดับอาหาร", "T4 ปิดครัว", "T7 ทำต่อได้"],
+                "กรีกโยเกิร์ต 1 ถ้วย หรืออกไก่แพ็กเล็กก่อนออกไปข้างนอก",
+                "ถึงเป็นวันหยุดก็ยังคงเว้นมื้อให้ครบ 4 ชั่วโมง",
+                "คืนนี้ลดแสงหน้าจอหลังมื้อเพื่อช่วยการนอน",
+                {
+                    morning: meal(
+                        "มันม่วง/มันหวาน 1 ลูกเล็ก + ทูน่าในน้ำแร่ 1/2 กระป๋อง + แตงกวา",
+                        [
+                            "ร้านสะดวกซื้อ: มันญี่ปุ่นอบ + ทูน่า + สลัดแตงกวา",
+                            "ตลาด: มันเผา + ไก่ฉีกไม่หนัง",
+                            "ถ้าไม่มีมัน: ใช้ฟักทองหรือข้าวโพดเป็นคาร์บดีแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวหมูย่างเนื้อล้วน 1 จาน + ต้มจืด 1 ถ้วย + ข้าว 1 กำปั้น",
+                        [
+                            "ร้านตามสั่ง: หมูย่างไม่ติดมัน + แตงกวา + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: หมูอบ/อกไก่ + ซุป + ข้าวกล้อง",
+                            "ถ้าไม่มีหมูย่าง: ใช้ไก่ย่างหรือปลาย่างแทนได้เลย"
+                        ]
+                    ),
+                    evening: meal(
+                        "สุกี้แห้งอกไก่ 1 จาน ผักเยอะ + น้ำจิ้มครึ่งเดียว",
+                        [
+                            "ร้านสุกี้: ขอผักเพิ่มและวุ้นเส้นน้อย",
+                            "ร้านสะดวกซื้อ: สลัดอกไก่ + ซุปมิโซะ + ไข่ต้ม",
+                            "ถ้าไม่มีสุกี้: ใช้ยำไก่ฉีกหรือสลัดโปรตีนก็ได้"
+                        ]
+                    )
+                },
+                "ถ้าต้องกินนอกบ้านหลายมื้อ ให้ยึดหลักร้านไหนก็ขอผักเพิ่ม น้ำมันน้อย และเริ่มกินจากผักก่อน"
+            ),
+            day(
+                "2026-04-05",
+                2,
+                "ยังคงใช้มื้อไทยง่าย ๆ แต่บังคับสัดส่วนให้โปรตีนชัดกว่าคาร์บ",
+                ["T1 เช้าให้ไว", "T5 เดินหลังมื้อ", "T6 สัดส่วน"],
+                "เวย์ 1/2 สกูป หรือไข่ลวก 2 ฟองถ้าตื่นสาย",
+                "มื้อกลางวันวันนี้ห้ามคาร์บนำหน้าโปรตีน",
+                "มื้อเย็นเบาแล้วเดินทันที",
+                {
+                    morning: meal(
+                        "โยเกิร์ตรสธรรมชาติ 1 ถ้วย + เวย์ 1/2 สกูป + กล้วย 1/2 ลูก",
+                        [
+                            "ร้านสะดวกซื้อ: โยเกิร์ต + นมโปรตีนสูง + กล้วยลูกเล็ก",
+                            "คาเฟ่: โยเกิร์ตธรรมชาติ + ไข่ต้ม 1-2 ฟอง",
+                            "ถ้าไม่มีเวย์: ใช้ไข่ต้มเพิ่มอีก 1 ฟองแทนโปรตีน"
+                        ]
+                    ),
+                    noon: meal(
+                        "กะเพราหมูสันในผัดน้ำ 1 จาน + ถั่วฝักยาวลวก + ข้าว 1 กำปั้น",
+                        [
+                            "ร้านตามสั่ง: ขอผัดน้ำน้อยและไม่เพิ่มน้ำตาล",
+                            "ร้านสะดวกซื้อ: ข้าวกะเพราอกไก่ + ผักสลัด + ไข่ต้ม",
+                            "ถ้าไม่มีหมูสันใน: ใช้ไก่สับหรือเต้าหู้แทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ไข่ตุ๋น 1 ถ้วย + ปลาย่าง 1 ชิ้น + ผักย่าง/ผักลวก",
+                        [
+                            "ร้านข้าวแกง: ไข่ตุ๋น + ปลาย่าง + ต้มจืด",
+                            "ร้านสะดวกซื้อ: ไข่ออนเซ็น 2 ฟอง + ปลาซาบะ + สลัด",
+                            "ถ้าไม่มีปลา: ใช้เต้าหู้หรืออกไก่แทนโปรตีนหลัก"
+                        ]
+                    )
+                },
+                "ถ้าวันนี้จะกินของหวานจริง ๆ ให้กินหลังมื้อหลักเล็กน้อย ไม่ใช่คั่นระหว่างมื้อ"
+            ),
+            day(
+                "2026-04-06",
+                2,
+                "ปิดสัปดาห์ Transform ด้วยมื้ออุ่นสบายและรักษาเวลาให้แม่น",
+                ["T3 4 ชั่วโมง", "T4 ปิดครัว", "T7 ไม่โยโย่"],
+                "ไข่ต้ม 2 ฟอง หรือนมโปรตีนสูงก่อนเริ่มงานเช้า",
+                "วันนี้เช็กให้ครบว่ามื้อเช้า-เที่ยง-เย็นห่างกันจริง",
+                "เย็นนี้เอาจอออกจากเตียงให้ได้",
+                {
+                    morning: meal(
+                        "ไข่ดาวน้ำ 2 ฟอง + ขนมปังโฮลวีต 2 แผ่น + มะเขือเทศ/แตงกวา",
+                        [
+                            "ร้านตามสั่ง: ไข่ 2 ฟอง + ข้าวครึ่ง/ขนมปัง 2 แผ่น + ผักแนม",
+                            "ร้านสะดวกซื้อ: ไข่ต้มคู่ + โฮลวีต + มะเขือเทศเชอร์รี",
+                            "ถ้าไม่มีโฮลวีต: ใช้ฟักทองนึ่งหรือข้าวโพดเป็นคาร์บแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวปลาแกะ 1 จาน + ยำผัก/ผักสด 1 ถ้วย",
+                        [
+                            "ร้านข้าวแกง: ปลาแกะ + ผักลวก + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: ปลาซาบะ + สลัด + ข้าวกล้อง",
+                            "ถ้าไม่มีปลา: ใช้ไก่อบหรือเต้าหู้ทรงเครื่องแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "แกงเลียงกุ้งสด 1 ชาม + ข้าว 1/2 ทัพพี",
+                        [
+                            "ร้านข้าวแกง: แกงเลียง + ไข่ต้มเพิ่ม 1 ฟอง",
+                            "ร้านสะดวกซื้อ: ซุปผัก + กุ้ง/อกไก่ + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีแกงเลียง: ใช้ต้มจืดผักกาดขาวหรือซุปเห็ดแทน"
+                        ]
+                    )
+                },
+                "ครบสัปดาห์ 2 แล้ว รอบเอวควรเริ่มตอบสนอง ถ้ายังไม่ลงมักมาจากมื้อดึกหรือกินจุกจิกแทรก"
+            ),
+            day(
+                "2026-04-07",
+                3,
+                "เริ่มช่วง Sustainable ด้วยเมนูที่พกไปทำงานหรือซื้อระหว่างทางได้",
+                ["T1 โปรตีนพกง่าย", "T2 ลำดับมื้อ", "T7 ยืดหยุ่นได้"],
+                "เวย์ซอง 1 ซอง หรือไข่ต้มคู่ติดกระเป๋าไว้เลย",
+                "วันนี้เน้นความยืดหยุ่นแต่ไม่หลุดโครงหลัก",
+                "มื้อเย็นให้จบเร็วเพื่อเก็บพลังงานไว้วันถัดไป",
+                {
+                    morning: meal(
+                        "นมโปรตีนสูงไม่หวาน 1 ขวด + ไข่ต้ม 1-2 ฟอง + ฝรั่ง 1/2 ลูก",
+                        [
+                            "ร้านสะดวกซื้อ: หยิบครบได้ใน 2 นาที",
+                            "ออฟฟิศ: นมโปรตีนสูง + ไข่ออนเซ็น + แตงกวา/ผลไม้หวานน้อย",
+                            "ถ้าไม่มีฝรั่ง: ใช้แอปเปิลเขียวหรือแตงกวาแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "โรลเวียดนามกุ้ง/หมูย่าง 3-4 ชิ้น + ข้าวเล็กน้อย + ผักเยอะ",
+                        [
+                            "ร้านอาหารเวียดนาม: เริ่มจากผักและน้ำจิ้มใช้แค่พอชุ่ม",
+                            "ร้านสะดวกซื้อ: สลัดโปรตีน + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีโรล: ใช้สลัดอกไก่หรือข้าวยำปลาทูแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ปลาย่าง/แซลมอนย่าง 1 ชิ้น + สลัดผัก + มันหวาน 1/2 ลูก",
+                        [
+                            "ร้านญี่ปุ่น: ปลาย่าง + สลัด + ข้าวครึ่งถ้วย",
+                            "ร้านสะดวกซื้อ: ปลาซาบะ + สลัด + มันญี่ปุ่นอบ",
+                            "ถ้าไม่มีปลา: ใช้ไก่ย่างหรือเต้าหู้ย่างแทน"
+                        ]
+                    )
+                },
+                "สัปดาห์สุดท้ายไม่ต้องเพิ่มความโหด แต่ต้องเพิ่มความนิ่งและความพร้อมรับสถานการณ์จริง"
+            ),
+            day(
+                "2026-04-08",
+                3,
+                "ทำมื้อเช้าให้อุ่นท้องแต่ยังได้โปรตีนพอสำหรับช่วงงานยาว",
+                ["T3 เว้นมื้อ", "T5 หลังมื้อ", "T7 ทำได้จริง"],
+                "ไข่ลวก 2 ฟอง หรือกรีกโยเกิร์ต 1 ถ้วยถ้ายังไม่พร้อมกินเต็มมื้อ",
+                "หิวบ่ายให้เช็กว่ามื้อเที่ยงขาดผักหรือโปรตีนหรือไม่",
+                "คืนนี้ลดแสงจอทันทีหลังมื้อเย็น",
+                {
+                    morning: meal(
+                        "โจ๊กข้าวโอ๊ตไก่ฉีก 1 ชาม + ไข่ลวก 1 ฟอง",
+                        [
+                            "ร้านโจ๊ก: โจ๊กไก่ + ไข่ลวก + ขอไม่ปาท่องโก๋",
+                            "ร้านสะดวกซื้อ: โจ๊กถ้วย + ไข่ต้ม + อกไก่แพ็กเล็ก",
+                            "ถ้าไม่มีข้าวโอ๊ต: โจ๊กธรรมดาก็ได้แต่ลดปริมาณคาร์บมื้ออื่นเล็กน้อย"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวมันไก่เนื้ออก 1 จาน ข้าวน้อย + แตงกวาเพิ่ม",
+                        [
+                            "ร้านข้าวมันไก่: เลือกเนื้ออก ไม่หนัง และใช้น้ำจิ้มครึ่งเดียว",
+                            "ร้านสะดวกซื้อ: ข้าวมันไก่ + แตงกวา + ไข่ต้มเพิ่ม",
+                            "ถ้าข้าวเยอะ: ตักออกให้เหลือประมาณ 1 กำปั้น"
+                        ]
+                    ),
+                    evening: meal(
+                        "ยำเห็ดรวม 1 จาน + เต้าหู้ขาวย่าง/นึ่ง + ข้าว 1/2 กำปั้น",
+                        [
+                            "ร้านยำ: ขอไม่หวานและไม่น้ำมันลอย",
+                            "ร้านสะดวกซื้อ: สลัดเห็ด/สลัดผัก + เต้าหู้ไข่ + ซุปใส",
+                            "ถ้าไม่มีเห็ด: ใช้ยำวุ้นเส้นหรือยำทูน่าแทน"
+                        ]
+                    )
+                },
+                "มื้อที่ต้องซื้อด่วนยังคงอยู่ได้ในแผน ขอแค่มีโปรตีนและผักนำก่อนคาร์บ"
+            ),
+            day(
+                "2026-04-09",
+                3,
+                "วันเตรียมพร้อมก่อนออกนอกบ้านหลายรอบ ใช้เมนูซื้อได้ง่ายแต่คุมอินซูลิน",
+                ["T1 น้ำ+โปรตีน", "T2 ผักก่อน", "T6 40-30-30"],
+                "เวย์ 1/2-1 สกูป หรืออกไก่แพ็กเล็กทันทีหลังน้ำ",
+                "ช่วงบ่ายถ้ารู้ว่าจะติดประชุม ให้พกน้ำเปล่าติดตัวไว้แทนการซื้อขนม",
+                "มื้อเย็นใช้เมนูน้ำใสเพื่อไม่ให้แน่นท้อง",
+                {
+                    morning: meal(
+                        "มันหวาน 1 ลูกเล็ก + อกไก่ฉีก 1 กำมือ + โยเกิร์ตรสธรรมชาติ 1 ถ้วยเล็ก",
+                        [
+                            "ร้านสะดวกซื้อ: มันญี่ปุ่นอบ + อกไก่รมควัน + โยเกิร์ต",
+                            "ตลาด: มันเผา + ไก่ย่างไม่หนัง",
+                            "ถ้าไม่มีมัน: ใช้ข้าวโพดหรือฟักทองแทนคาร์บดี"
+                        ]
+                    ),
+                    noon: meal(
+                        "ส้มตำไทยหวานน้อย 1 จาน + หมูสันในย่าง 1 ฝ่ามือ + ข้าวเหนียว 1 ปั้นเล็ก",
+                        [
+                            "ร้านอีสาน: ขอหมูเนื้อล้วนและไม่ใส่น้ำตาลเพิ่ม",
+                            "ร้านสะดวกซื้อ: อกไก่แพ็ก + ตำแตง + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีหมูสันใน: ใช้ไก่ย่างหรือปลาย่างแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "แกงจืดวุ้นเส้นเต้าหู้หมูสับ 1 ชาม + ผักลวก",
+                        [
+                            "ร้านข้าวแกง: แกงจืด + ไข่ต้ม + ข้าวน้อยถ้าจำเป็น",
+                            "ร้านสะดวกซื้อ: ซุปใส + เต้าหู้ไข่ + สลัด",
+                            "ถ้าไม่มีแกงจืด: ใช้ต้มเล้งน้ำใสหรือซุปสาหร่ายแทน"
+                        ]
+                    )
+                },
+                "พอเข้าโหมดออกนอกบ้านบ่อย ความสม่ำเสมอสำคัญกว่าความเป๊ะ แค่ไม่กินเพลินทั้งวันก็ชนะมากแล้ว"
+            ),
+            day(
+                "2026-04-10",
+                3,
+                "เมนูเดินทางสะดวก เน้นหาซื้อไวและปิดมื้อดึกไม่ให้ย้อนกลับมา",
+                ["T3 4 ชั่วโมง", "T4 ปิดครัว", "T5 เดิน 7 นาที"],
+                "นมโปรตีนสูงหรือไข่ต้มคู่ก่อนออกบ้าน แม้ยังไม่พร้อมกินเช้าเต็ม",
+                "ถ้าต้องเดินทางยาว ให้เตรียมน้ำเปล่าไว้ก่อนหนึ่งขวด",
+                "มื้อเย็นวันนี้อย่าลากเกิน 19:45",
+                {
+                    morning: meal(
+                        "แซนด์วิชทูน่าโฮลวีต 1 ชิ้น + นมถั่วเหลืองไม่หวาน 1 กล่อง",
+                        [
+                            "ร้านสะดวกซื้อ: แซนด์วิชทูน่า + นมโปรตีนสูง",
+                            "คาเฟ่: แซนด์วิชไก่ + อเมริกาโนไม่หวาน",
+                            "ถ้าไม่มีโฮลวีต: เลือกแซนด์วิชชิ้นเล็กแล้วเสริมไข่ต้มเพิ่ม"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวหน้าปลาย่าง 1 จาน + ซุปมิโซะ/ซุปใส + สลัดเล็ก",
+                        [
+                            "ร้านญี่ปุ่น: ปลาย่าง + ข้าวครึ่ง + ซุป",
+                            "ร้านสะดวกซื้อ: ปลาซาบะ + ซุปมิโซะ + ข้าวกล้อง",
+                            "ถ้าไม่มีปลา: ใช้ไก่ย่างหรือเต้าหู้แทนโปรตีนหลัก"
+                        ]
+                    ),
+                    evening: meal(
+                        "ลาบทูน่า 1 จาน + ผักสด + ข้าวกล้อง 1/2 ทัพพี",
+                        [
+                            "ร้านอีสาน: ลาบไก่/ลาบปลา ขอไม่หวาน",
+                            "ร้านสะดวกซื้อ: ทูน่าในน้ำแร่ + สลัด + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีทูน่า: ใช้อกไก่ฉีกหรือไข่ต้ม 2 ฟองแทน"
+                        ]
+                    )
+                },
+                "ก่อนวันหยุดยาวหลายคนหลุดเพราะประชุมหรือเดินทาง ให้คิดว่ามื้อฉุกเฉินก็ยังต้องมีโปรตีนก่อนเสมอ"
+            ),
+            day(
+                "2026-04-11",
+                3,
+                "ใช้เมนูเบาแต่โปรตีนยังชัดเพื่อกันอาการบวมก่อนสงกรานต์",
+                ["T1 โปรตีนเช้า", "T5 ขยับหลังมื้อ", "T6 สัดส่วน"],
+                "กรีกโยเกิร์ต 1 ถ้วย หรือไข่ต้ม 2 ฟองทันทีหลังดื่มน้ำ",
+                "วันนี้ห้ามขนมกรุบกรอบคั่นมื้อ",
+                "หลังมื้อเย็นให้เดินจริง ไม่ใช่แค่นั่งต่อ",
+                {
+                    morning: meal(
+                        "กรีกโยเกิร์ต 1 ถ้วย + เอดามาเมะ 1/2 ถ้วย + ชมพู่/เบอร์รีเล็กน้อย",
+                        [
+                            "ร้านสะดวกซื้อ: โยเกิร์ตโปรตีนสูง + ถั่วแระ + ชมพู่หั่น",
+                            "คาเฟ่: โยเกิร์ตธรรมชาติ + ไข่ต้ม",
+                            "ถ้าไม่มีถั่วแระ: ใช้ไข่ต้มเพิ่มหรือทูน่าแทนโปรตีน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ก๋วยเตี๋ยวน้ำใสเส้นน้อย 1 ชาม + เกาเหลาเพิ่มผัก 1 ถ้วยเล็ก",
+                        [
+                            "ร้านก๋วยเตี๋ยว: สั่งเส้นน้อย เพิ่มลูกชิ้นน้อย และเพิ่มผัก",
+                            "ร้านสะดวกซื้อ: ซุปน้ำใส + อกไก่ + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีเส้นน้อย: สั่งเกาเหลาแล้วเติมข้าวครึ่งทัพพีแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "สุกี้น้ำทะเล 1 ชาม + ไข่ต้ม 1 ฟอง + น้ำจิ้มครึ่งเดียว",
+                        [
+                            "ร้านสุกี้: ขอผักเพิ่ม วุ้นเส้นน้อย",
+                            "ร้านสะดวกซื้อ: สลัดอกไก่ + ซุปมิโซะ + ไข่ต้ม",
+                            "ถ้าไม่มีสุกี้: ใช้แกงจืดเต้าหู้หรือยำทูน่าแทน"
+                        ]
+                    )
+                },
+                "อาการบวมก่อนเทศกาลมักมาจากโซเดียมและมื้อดึก วันนี้เน้นน้ำใสกับการเดินหลังอาหารให้ครบ"
+            ),
+            day(
+                "2026-04-12",
+                3,
+                "ก่อนสงกรานต์หนึ่งวัน ให้เมนูไทยง่าย ๆ ที่คุมได้แม้อยู่กับครอบครัว",
+                ["T2 ผักก่อน", "T4 ปิดครัว", "T7 ยั่งยืน"],
+                "ไข่ต้ม 2 ฟอง หรือนมโปรตีนสูงไม่หวานหากต้องออกไปธุระเช้า",
+                "ยังคงเว้นมื้อ 4 ชั่วโมงเหมือนเดิม อย่าใช้ข้ออ้างว่าใกล้เทศกาลแล้ว",
+                "มื้อสุดท้ายจบก่อน 20:00 เช่นเดิม",
+                {
+                    morning: meal(
+                        "ไข่ต้ม 2 ฟอง + ฟักทองนึ่ง 4-5 ชิ้น + แตงกวา/มะเขือเทศ",
+                        [
+                            "ร้านสะดวกซื้อ: ไข่ต้มคู่ + ฟักทองนึ่ง + แตงกวาหั่น",
+                            "ตลาด: ไข่พะโล้เอาเฉพาะไข่ + ฟักทองนึ่ง",
+                            "ถ้าไม่มีฟักทอง: ใช้ข้าวโพดหรือมันเผาแทนคาร์บดี"
+                        ]
+                    ),
+                    noon: meal(
+                        "อกไก่ย่าง 1 ชิ้น + ส้มตำข้าวโพด/ตำแตง 1 จาน + ข้าว 1/2-1 กำปั้น",
+                        [
+                            "ร้านอีสาน: ขอหวานน้อยและเพิ่มผักสด",
+                            "ร้านสะดวกซื้อ: อกไก่แพ็ก + ตำแตง + ข้าวกล้องครึ่งกล่อง",
+                            "ถ้าไม่มีอกไก่: ใช้ปลาย่างหรือหมูสันในย่างแทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "ต้มแซ่บปลา 1 ชาม + ผักลวก 1 ถ้วย + ข้าวกล้อง 1/2 ทัพพี",
+                        [
+                            "ร้านข้าวแกง: ต้มแซ่บ/ต้มยำน้ำใส + ข้าวน้อย",
+                            "ร้านสะดวกซื้อ: ซุปเผ็ดน้ำใส + ปลาซาบะหรือไข่ต้ม + สลัด",
+                            "ถ้าไม่มีปลา: ใช้ไก่ย่างหรือเต้าหู้แทนโปรตีนหลัก"
+                        ]
+                    )
+                },
+                "ถ้าวันนี้มีชวนกินหลายรอบ ให้เลือกเพียงมื้อหลัก 3 มื้อและกันของกินเล่นออกให้หมด"
+            ),
+            day(
+                "2026-04-13",
+                3,
+                "วันก่อนเข้าช่วงเล่นน้ำจริง เน้นมื้อยืดหยุ่นเพื่อไม่โยโย่เมื่อเจอสังคม",
+                ["T1 โปรตีนเช้า", "T6 สัดส่วน", "T7 Sustainable"],
+                "เวย์ 1/2-1 สกูป หรือไข่ลวก 1-2 ฟองก่อนออกจากบ้าน",
+                "ถ้ามีปาร์ตี้หรือไปบ้านญาติ ให้คุมด้วยลำดับการกินแทนการห้ามทุกอย่าง",
+                "ปิดครัวไวเพื่อให้ตื่นเช้าวันสงกรานต์แบบตัวเบา",
+                {
+                    morning: meal(
+                        "เวย์ 1/2-1 สกูป + กล้วย 1/2 ลูก + ไข่ลวก 1 ฟอง",
+                        [
+                            "ร้านสะดวกซื้อ: นมโปรตีนสูง + ไข่ต้ม + กล้วยลูกเล็ก",
+                            "คาเฟ่: อเมริกาโนไม่หวาน + ไข่ต้ม + โยเกิร์ตธรรมชาติ",
+                            "ถ้าไม่มีเวย์: ใช้นมโปรตีนสูงหรือกรีกโยเกิร์ตแทน"
+                        ]
+                    ),
+                    noon: meal(
+                        "ข้าวยำปลาทู/ปลาย่าง 1 จาน + ผักสด 1 ถ้วย",
+                        [
+                            "ร้านอาหารไทย: เลือกเมนูปลา + ข้าวพอดีมือ + ผักแนม",
+                            "ร้านสะดวกซื้อ: ปลาซาบะ + สลัด + ข้าวกล้อง",
+                            "ถ้าไม่มีปลา: ใช้อกไก่ย่างหรือทูน่าในน้ำแร่แทน"
+                        ]
+                    ),
+                    evening: meal(
+                        "มื้อสังคมแบบเซฟ: เริ่มจากผัก/ยำก่อน เลือกโปรตีนไม่ติดมัน แล้วคุมคาร์บไว้ 1 กำปั้น",
+                        [
+                            "ถ้าเจอปิ้งย่าง: เลือกหมูสันใน ไก่ไม่หนัง กุ้ง และผักย่างก่อน",
+                            "ถ้าเจออาหารอีสาน: เริ่มจากตำแตง ซุปหน่อไม้ ลาบไก่ แล้วค่อยข้าวเหนียวเล็กน้อย",
+                            "ถ้าเลี่ยงไม่ได้จริง: รักษาแค่ลำดับผัก → โปรตีน → คาร์บ และหยุดก่อนแน่น"
+                        ]
+                    )
+                },
+                "วันสุดท้ายของแผนไม่ใช่วันปล่อยหลุด แต่เป็นวันซ้อมใช้หลัก RTS ในสถานการณ์จริงก่อนเข้าเทศกาล"
+            )
+        ];
+
+        const theoryGrid = document.getElementById("theoryGrid");
+        const weekTabs = document.getElementById("weekTabs");
+        const weekPanels = document.getElementById("weekPanels");
+
+        const dateFormatter = new Intl.DateTimeFormat("th-TH", {
+            day: "numeric",
+            month: "short",
+            year: "2-digit",
+            timeZone: "Asia/Bangkok"
+        });
+
+        const weekdayFormatter = new Intl.DateTimeFormat("th-TH", {
+            weekday: "long",
+            timeZone: "Asia/Bangkok"
+        });
+
+        function formatDateLabel(dateStr) {
+            return dateFormatter.format(new Date(dateStr));
+        }
+
+        function formatDayName(dateStr) {
+            return weekdayFormatter.format(new Date(dateStr));
+        }
+
+        function getBangkokTodayKey() {
+            return new Intl.DateTimeFormat("sv-SE", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                timeZone: "Asia/Bangkok"
+            }).format(new Date());
+        }
+
+        function renderTheoryCards() {
+            theoryGrid.innerHTML = theoryNotes.map((item) => `
+                <article class="theory-card">
+                    <div class="theory-top">
+                        <div class="theory-number">${item.number}</div>
+                        <div class="theory-tag">${item.tag}</div>
+                    </div>
+                    <h3>${item.title}</h3>
+                    <p>${item.copy}</p>
+                    <div class="theory-checks">
+                        ${item.checks.map((check) => `<div>${check}</div>`).join("")}
+                    </div>
+                    <div class="theory-outcome">${item.outcome}</div>
+                </article>
+            `).join("");
+        }
+
+        function renderTabs(activeWeek) {
+            weekTabs.innerHTML = weekMeta.map((week) => `
+                <button
+                    class="tab-btn ${week.week === activeWeek ? "active" : ""}"
+                    type="button"
+                    data-week="${week.week}"
+                    aria-pressed="${week.week === activeWeek ? "true" : "false"}"
+                >
+                    <div class="tab-top">
+                        <span class="tab-week">${week.title}</span>
+                        <span class="tab-range">${week.range}</span>
+                    </div>
+                    <div class="tab-sub">${week.subtitle}</div>
+                </button>
+            `).join("");
+        }
+
+        function renderMeal(slot, data) {
+            return `
+                <section class="meal-slot ${slot}">
+                    <div class="meal-head">
+                        <div class="meal-label">${slotMeta[slot].label}</div>
+                        <div class="meal-time">${slotMeta[slot].time}</div>
+                    </div>
+                    <div class="meal-content">${data.main}</div>
+                    <div class="meal-structure">
+                        <span>ผัก 5-7 คำก่อน</span>
+                        <span>โปรตีน 1-1.5 ฝ่ามือ</span>
+                        <span>คาร์บ 1 กำปั้น</span>
+                    </div>
+                    <div class="meal-alt">
+                        <div class="meal-alt-label">ถ้าของไม่มี ให้สลับแบบนี้</div>
+                        <ul class="swap-list">
+                            ${data.swaps.map((swap) => `<li>${swap}</li>`).join("")}
+                        </ul>
+                    </div>
+                    <div class="after-meal">หลังมื้อนี้ให้เดิน 400-600 ก้าว หรือขยับตัวเก็บโต๊ะ/ล้างจานให้ครบ 7 นาที</div>
+                </section>
+            `;
+        }
+
+        function renderPanels(activeWeek) {
+            const grouped = weekMeta.map((week) => ({
+                ...week,
+                days: planDays.filter((dayItem) => dayItem.week === week.week)
+            }));
+
+            weekPanels.innerHTML = grouped.map((week) => `
+                <section class="week-panel ${week.week === activeWeek ? "active" : ""}" data-week="${week.week}">
+                    ${week.days.map((item) => `
+                        <article class="day-card" data-date="${item.date}">
+                            <button class="card-header" type="button" aria-expanded="false">
+                                <div class="card-main">
+                                    <div class="date-row">
+                                        <span class="date-label">${formatDateLabel(item.date)}</span>
+                                        <span class="day-name">${formatDayName(item.date)}</span>
+                                        <span class="today-badge">วันนี้</span>
+                                    </div>
+                                    <div class="focus-title">${item.focus}</div>
+                                    <div class="focus-copy">${item.between}</div>
+                                </div>
+                                <span class="chevron">⌄</span>
+                            </button>
+                            <div class="card-body">
+                                <div class="card-body-inner">
+                                    <div class="meta-grid">
+                                        <div class="mini-card protein-reminder">
+                                            <strong>60 นาทีแรกของวัน</strong>
+                                            <p>น้ำ 400-600 มล. + โปรตีนเร็ว: ${item.proteinKick}</p>
+                                        </div>
+                                        <div class="mini-card">
+                                            <strong>ช่องว่าง 4 ชั่วโมง</strong>
+                                            <p>${item.between}</p>
+                                        </div>
+                                        <div class="mini-card">
+                                            <strong>ปิดครัวก่อน 20:00</strong>
+                                            <p>${item.kitchen}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="guide-strip">
+                                        <div class="sequence-badge">ผัก → โปรตีน → คาร์บ</div>
+                                        <div class="ratio-badge">40% โปรตีน • 30% ผัก • 30% คาร์บดี</div>
+                                        ${item.theory.map((label) => `<div class="theory-pill">${label}</div>`).join("")}
+                                    </div>
+
+                                    <div class="meal-grid">
+                                        ${renderMeal("morning", item.meals.morning)}
+                                        ${renderMeal("noon", item.meals.noon)}
+                                        ${renderMeal("evening", item.meals.evening)}
+                                    </div>
+
+                                    <div class="day-note">
+                                        <strong>RTS Note</strong>
+                                        <p>${item.note}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    `).join("")}
+                </section>
+            `).join("");
+        }
+
+        function setActiveWeek(weekNumber) {
+            document.querySelectorAll(".tab-btn").forEach((button) => {
+                const isActive = Number(button.dataset.week) === weekNumber;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
+
+            document.querySelectorAll(".week-panel").forEach((panel) => {
+                panel.classList.toggle("active", Number(panel.dataset.week) === weekNumber);
+            });
+        }
+
+        function openCard(card, shouldOpen) {
+            const nextState = typeof shouldOpen === "boolean" ? shouldOpen : !card.classList.contains("open");
+            card.classList.toggle("open", nextState);
+            const button = card.querySelector(".card-header");
+            if (button) {
+                button.setAttribute("aria-expanded", String(nextState));
+            }
+        }
+
+        function highlightTodayCard() {
+            const todayKey = getBangkokTodayKey();
+            const todayCard = document.querySelector(`.day-card[data-date="${todayKey}"]`);
+
+            if (todayCard) {
+                const weekNumber = Number(todayCard.closest(".week-panel").dataset.week);
+                setActiveWeek(weekNumber);
+                todayCard.classList.add("today");
+                openCard(todayCard, true);
+
+                requestAnimationFrame(() => {
+                    todayCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                });
+                return;
+            }
+
+            const firstPanel = document.querySelector('.week-panel[data-week="1"]');
+            const firstCard = firstPanel ? firstPanel.querySelector(".day-card") : null;
+            if (firstCard) {
+                setActiveWeek(1);
+                openCard(firstCard, true);
+            }
+        }
+
+        renderTheoryCards();
+
+        const todayInPlan = planDays.find((item) => item.date === getBangkokTodayKey());
+        const initialWeek = todayInPlan ? todayInPlan.week : 1;
+
+        renderTabs(initialWeek);
+        renderPanels(initialWeek);
+        highlightTodayCard();
+
+        weekTabs.addEventListener("click", (event) => {
+            const button = event.target.closest(".tab-btn");
+            if (!button) {
+                return;
+            }
+            setActiveWeek(Number(button.dataset.week));
+        });
+
+        weekPanels.addEventListener("click", (event) => {
+            const button = event.target.closest(".card-header");
+            if (!button) {
+                return;
+            }
+            const card = button.closest(".day-card");
+            if (!card) {
+                return;
+            }
+            openCard(card);
+        });
+    </script>
+</body>
+</html>
