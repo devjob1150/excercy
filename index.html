@@ -486,6 +486,215 @@
             color: var(--accent);
         }
 
+        .food-library {
+            margin-top: 18px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.54);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(18px);
+            overflow: hidden;
+        }
+
+        .food-library summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 20px;
+        }
+
+        .food-library summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .food-library-copy {
+            display: grid;
+            gap: 5px;
+        }
+
+        .food-library-copy strong {
+            font-family: "Bai Jamjuree", "Prompt", sans-serif;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .food-library-copy span {
+            color: var(--text-soft);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .food-library-body {
+            padding: 0 20px 20px;
+        }
+
+        .food-library-note {
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--line);
+            color: var(--text-soft);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        .food-category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .food-category-card {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 20px rgba(23, 33, 29, 0.04);
+        }
+
+        .food-category-card strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+            line-height: 1.35;
+        }
+
+        .food-category-card span {
+            display: block;
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        .food-count {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .food-count.protein {
+            background: rgba(185, 89, 40, 0.12);
+            color: #9f4c23;
+        }
+
+        .food-count.veg {
+            background: rgba(47, 119, 83, 0.12);
+            color: #2f7753;
+        }
+
+        .food-count.carb {
+            background: rgba(74, 110, 142, 0.12);
+            color: #456785;
+        }
+
+        .food-count.soup {
+            background: rgba(95, 95, 140, 0.12);
+            color: #4e4e87;
+        }
+
+        .food-count.meal {
+            background: rgba(211, 109, 54, 0.12);
+            color: #b2582c;
+        }
+
+        .food-count.convenience {
+            background: rgba(155, 106, 14, 0.14);
+            color: #8f620f;
+        }
+
+        .food-table-wrap {
+            margin-top: 16px;
+            overflow: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .food-table {
+            width: 100%;
+            min-width: 920px;
+            border-collapse: collapse;
+        }
+
+        .food-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: 14px 12px;
+            background: #f5efe5;
+            border-bottom: 1px solid var(--line-strong);
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .food-table tbody td {
+            padding: 13px 12px;
+            border-bottom: 1px solid rgba(23, 33, 29, 0.08);
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text);
+            vertical-align: top;
+        }
+
+        .food-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .food-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .food-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .food-chip.protein {
+            background: rgba(185, 89, 40, 0.12);
+            color: #9f4c23;
+        }
+
+        .food-chip.veg {
+            background: rgba(47, 119, 83, 0.12);
+            color: #2f7753;
+        }
+
+        .food-chip.carb {
+            background: rgba(74, 110, 142, 0.12);
+            color: #456785;
+        }
+
+        .food-chip.soup {
+            background: rgba(95, 95, 140, 0.12);
+            color: #4e4e87;
+        }
+
+        .food-chip.meal {
+            background: rgba(211, 109, 54, 0.12);
+            color: #b2582c;
+        }
+
+        .food-chip.convenience {
+            background: rgba(155, 106, 14, 0.14);
+            color: #8f620f;
+        }
+
         .plan-shell {
             margin-top: 22px;
         }
@@ -936,6 +1145,10 @@
             .meta-grid {
                 grid-template-columns: 1fr;
             }
+
+            .food-category-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         @media (max-width: 767px) {
@@ -953,6 +1166,10 @@
             }
 
             .theory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-category-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -976,6 +1193,7 @@
             }
 
             .quick-reference summary,
+            .food-library summary,
             .card-header,
             .card-body-inner,
             .support-card,
@@ -985,6 +1203,10 @@
             }
 
             .reference-body {
+                padding: 0 16px 16px;
+            }
+
+            .food-library-body {
                 padding: 0 16px 16px;
             }
 
@@ -1102,6 +1324,37 @@
             </article>
         </section>
 
+        <details class="food-library" open>
+            <summary>
+                <div class="food-library-copy">
+                    <strong>ตารางอาหารที่ทานได้ <span id="foodLibraryCount">0</span> รายการ</strong>
+                    <span>ใช้เป็นคลังเมนูสำหรับสลับกินได้เลย โดยยังยึดหลัก ผัก → โปรตีน → คาร์บ และเว้นมื้อ 4 ชั่วโมงเหมือนเดิม</span>
+                </div>
+                <span class="summary-toggle">⌄</span>
+            </summary>
+            <div class="food-library-body">
+                <div class="food-library-note">
+                    วิธีใช้เร็วที่สุดคือ เลือกจากตารางนี้ให้ครบ 3 อย่างต่อมื้อ: ผัก 1 อย่าง, โปรตีน 1 อย่าง, คาร์บดี 1 อย่าง
+                    ถ้าวันไหนกินจานเดียวหรือกินนอกบ้าน ให้ใช้หมวด “เมนูจานเดียว/นอกบ้าน” หรือ “ร้านสะดวกซื้อ/ฉุกเฉิน” แทนได้ทันที
+                </div>
+                <div class="food-category-grid" id="foodCategoryGrid"></div>
+                <div class="food-table-wrap">
+                    <table class="food-table">
+                        <thead>
+                            <tr>
+                                <th>หมวด</th>
+                                <th>อาหาร</th>
+                                <th>เหมาะกับมื้อ</th>
+                                <th>ปริมาณคร่าว ๆ</th>
+                                <th>โน้ตใช้งาน</th>
+                            </tr>
+                        </thead>
+                        <tbody id="foodTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </details>
+
         <section class="plan-shell">
             <div class="plan-head">
                 <div>
@@ -1200,6 +1453,83 @@
                 ],
                 outcome: "ครบ 21 วันควรเห็นความต่างทั้งเรื่องหิว, รอบเอว และความนิ่งของพลังงานระหว่างวัน"
             }
+        ];
+
+        const foodCategories = [
+            { key: "protein", label: "โปรตีน", guide: "เลือกประมาณ 1-1.5 ฝ่ามือต่อมื้อ" },
+            { key: "veg", label: "ผัก", guide: "เริ่มกินก่อน 5-7 คำทุกมื้อ" },
+            { key: "carb", label: "คาร์บดี", guide: "ประมาณ 1 กำปั้นต่อมื้อ" },
+            { key: "soup", label: "เมนูน้ำ/ซุป", guide: "ใช้เป็นตัวช่วยอิ่มง่ายและเพิ่มผัก" },
+            { key: "meal", label: "เมนูจานเดียว/นอกบ้าน", guide: "สั่งกินได้จริงในชีวิตประจำวัน" },
+            { key: "convenience", label: "ร้านสะดวกซื้อ/ฉุกเฉิน", guide: "หยิบได้เร็วเวลาของไม่ครบ" }
+        ];
+
+        const foodLibrary = [
+            { category: "protein", item: "ไข่ต้ม", meal: "เช้า / เย็น / มื้อเร่งด่วน", portion: "2 ฟอง", note: "เหมาะมากสำหรับทฤษฎีข้อ 1 เพราะหาง่ายและคุมปริมาณได้" },
+            { category: "protein", item: "ไข่ลวก", meal: "เช้า", portion: "1-2 ฟอง", note: "ใช้แทนโปรตีนเร็วได้ทันทีหลังดื่มน้ำ" },
+            { category: "protein", item: "ไข่ออนเซ็น", meal: "เช้า / เย็น", portion: "2 ฟอง", note: "เหมาะวันรีบหรือซื้อจากร้านสะดวกซื้อ" },
+            { category: "protein", item: "อกไก่ย่าง", meal: "เที่ยง / เย็น", portion: "1-1.5 ฝ่ามือ", note: "เลือกแบบไม่ติดหนังและไม่ราดซอสหวาน" },
+            { category: "protein", item: "ไก่ต้ม", meal: "เช้า / เที่ยง / เย็น", portion: "1-1.5 ฝ่ามือ", note: "ย่อยง่าย เหมาะกับวันที่อยากกินเบา" },
+            { category: "protein", item: "ไก่อบ", meal: "เที่ยง / เย็น", portion: "1-1.5 ฝ่ามือ", note: "คุมมันง่ายกว่าเมนูทอด" },
+            { category: "protein", item: "ปลานึ่ง", meal: "เที่ยง / เย็น", portion: "1 ชิ้นหรือ 1 ฝ่ามือครึ่ง", note: "เหมาะกับช่วงปิดครัวเร็วเพราะไม่หนักท้อง" },
+            { category: "protein", item: "ปลาย่าง", meal: "เที่ยง / เย็น", portion: "1 ชิ้น", note: "ใช้คู่กับผักลวกและคาร์บดีได้ดี" },
+            { category: "protein", item: "ทูน่าในน้ำแร่", meal: "เช้า / เที่ยง / ฉุกเฉิน", portion: "1/2-1 กระป๋อง", note: "พกง่าย เหมาะเวลาไม่มีร้านอาหาร" },
+            { category: "protein", item: "กรีกโยเกิร์ตรสธรรมชาติ", meal: "เช้า", portion: "1 ถ้วย", note: "เป็นโปรตีนเร็วที่ใช้แทนมื้อรีบได้" },
+
+            { category: "veg", item: "แตงกวา", meal: "ทุกมื้อ", portion: "5-7 คำก่อนมื้อ", note: "ใช้เป็นผักตั้งต้นง่ายสุดเวลาอาหารไม่ครบ" },
+            { category: "veg", item: "ผักสลัดรวม", meal: "ทุกมื้อ", portion: "1 ถ้วย", note: "ช่วยทำตามทฤษฎีข้อ 2 ได้ง่ายมาก" },
+            { category: "veg", item: "กะหล่ำปลีลวก", meal: "เที่ยง / เย็น", portion: "1 ถ้วย", note: "แนมกับลาบ น้ำตก หรือไก่ย่างได้ดี" },
+            { category: "veg", item: "ผักกาดแก้ว", meal: "ทุกมื้อ", portion: "5-7 คำก่อนมื้อ", note: "ใช้ห่อโปรตีนแทนการกินคาร์บเยอะ" },
+            { category: "veg", item: "บรอกโคลีลวก", meal: "เที่ยง / เย็น", portion: "1 ถ้วย", note: "อิ่มอยู่ท้องและเข้ากับปลา ไก่ เต้าหู้" },
+            { category: "veg", item: "ถั่วฝักยาว", meal: "เที่ยง / เย็น", portion: "1 กำมือ", note: "เหมาะกับอาหารอีสานและน้ำพริก" },
+            { category: "veg", item: "เห็ดลวกหรือเห็ดอบ", meal: "เที่ยง / เย็น", portion: "1 ถ้วย", note: "เพิ่มวอลุ่มมื้อโดยไม่ดันคาร์บสูง" },
+            { category: "veg", item: "มะเขือเทศ", meal: "เช้า / เที่ยง", portion: "4-6 ชิ้น", note: "ใช้แทนผักเริ่มมื้อได้เวลาซื้ออาหารด่วน" },
+            { category: "veg", item: "ผักต้มรวม", meal: "เที่ยง / เย็น", portion: "1 ถ้วย", note: "เข้ากับเมนูข้าวแกงและปลา/ไก่นึ่ง" },
+            { category: "veg", item: "คะน้าลวก", meal: "เที่ยง / เย็น", portion: "1 ถ้วย", note: "ช่วยบาลานซ์เมนูผัดหรือเมนูย่างได้ดี" },
+
+            { category: "carb", item: "ข้าวกล้อง", meal: "เช้า / เที่ยง / เย็น", portion: "1 กำปั้น", note: "คาร์บหลักที่ใช้ได้แทบทุกเมนู" },
+            { category: "carb", item: "ข้าวไรซ์เบอร์รี", meal: "เที่ยง / เย็น", portion: "1 กำปั้น", note: "ทางเลือกแทนข้าวกล้องได้ตรง ๆ" },
+            { category: "carb", item: "มันหวาน", meal: "เช้า / เย็น", portion: "1 ลูกเล็ก", note: "เหมาะมากกับมื้อเช้าที่อยากกินง่าย" },
+            { category: "carb", item: "มันม่วง", meal: "เช้า / เย็น", portion: "1 ลูกเล็ก", note: "ใช้แทนข้าวได้ในวันที่อยากเปลี่ยนบ้าง" },
+            { category: "carb", item: "ฟักทองนึ่ง", meal: "เช้า / เย็น", portion: "4-5 ชิ้น", note: "เป็นคาร์บดีที่หาง่ายและไม่หนักเกิน" },
+            { category: "carb", item: "ข้าวโพดต้ม", meal: "เช้า / เย็น", portion: "1/2-1 ฝัก", note: "เหมาะเป็นตัวแทนข้าวเวลาอยากกินเบา" },
+            { category: "carb", item: "ขนมปังโฮลวีต", meal: "เช้า", portion: "2 แผ่น", note: "ใช้คู่ไข่หรือทูน่าได้ดี" },
+            { category: "carb", item: "ข้าวโอ๊ต", meal: "เช้า", portion: "1 ถ้วยเล็ก", note: "ใช้กับโยเกิร์ตหรือโจ๊กข้าวโอ๊ตได้" },
+            { category: "carb", item: "เผือกนึ่ง", meal: "เช้า / เย็น", portion: "1/2-1 หัวเล็ก", note: "ใช้แทนมันหรือข้าวได้" },
+            { category: "carb", item: "กล้วยลูกเล็ก", meal: "เช้า / ก่อนกิจกรรม", portion: "1/2-1 ลูก", note: "ใช้ได้เมื่ออยากคาร์บที่พกง่าย แต่ไม่ควรกินเดี่ยว ๆ แทนมื้อ" },
+
+            { category: "soup", item: "แกงจืดเต้าหู้หมูสับ", meal: "เที่ยง / เย็น", portion: "1 ชาม", note: "ใช้เป็นผัก+โปรตีนในมื้อเดียวได้" },
+            { category: "soup", item: "ต้มยำกุ้งน้ำใส", meal: "เที่ยง / เย็น", portion: "1 ชาม", note: "เลือกน้ำใสเพื่อลดภาระมื้อดึก" },
+            { category: "soup", item: "ต้มแซ่บไก่", meal: "เที่ยง / เย็น", portion: "1 ชาม", note: "เหมาะกับวันที่อยากกินรสจัดแต่ยังคุมมัน" },
+            { category: "soup", item: "สุกี้น้ำไก่", meal: "เที่ยง / เย็น", portion: "1 ชาม", note: "ขอผักเยอะและน้ำจิ้มครึ่งเดียว" },
+            { category: "soup", item: "เกาเหลาหมูตุ๋น", meal: "เที่ยง", portion: "1 ชาม", note: "เพิ่มผักและคุมข้าวไว้ 1 กำปั้น" },
+            { category: "soup", item: "ข้าวต้มปลา", meal: "เช้า / เย็น", portion: "1 ชาม", note: "เหมาะวันที่อยากกินเบา ย่อยง่าย" },
+            { category: "soup", item: "โจ๊กหมูใส่ไข่", meal: "เช้า", portion: "1 ชาม + ไข่ 1 ฟอง", note: "ตัดปาท่องโก๋ออกและเสริมผักแนมถ้าได้" },
+            { category: "soup", item: "แกงเลียงกุ้งสด", meal: "เที่ยง / เย็น", portion: "1 ชาม", note: "เพิ่มผักในมื้อได้ดีมาก" },
+            { category: "soup", item: "ซุปเห็ด", meal: "เย็น", portion: "1 ถ้วย", note: "ใช้แทนผักและช่วยให้มื้อเย็นเบา" },
+            { category: "soup", item: "ซุปสาหร่ายเต้าหู้", meal: "เช้า / เย็น / ฉุกเฉิน", portion: "1 ถ้วย", note: "เหมาะใช้แทนผักเมื่อตัวเลือกน้อย" },
+
+            { category: "meal", item: "กะเพราอกไก่ผัดน้ำ", meal: "เที่ยง", portion: "1 จาน ข้าว 1 กำปั้น", note: "ขอไม่ไข่ดาวและเพิ่มแตงกวา" },
+            { category: "meal", item: "ข้าวมันไก่เนื้ออกข้าวน้อย", meal: "เที่ยง", portion: "1 จาน", note: "ใช้น้ำจิ้มครึ่งเดียวและขอแตงกวาเพิ่ม" },
+            { category: "meal", item: "ไก่ย่างกับส้มตำหวานน้อย", meal: "เที่ยง", portion: "ไก่ 1 น่อง + ข้าวเหนียว 1 ปั้นเล็ก", note: "เริ่มจากผักในส้มตำก่อนเสมอ" },
+            { category: "meal", item: "ลาบไก่กับผักสด", meal: "เที่ยง / เย็น", portion: "1 จาน + ข้าว 1/2-1 กำปั้น", note: "เลือกเนื้อไม่ติดหนังและไม่หวาน" },
+            { category: "meal", item: "น้ำตกหมูสันใน", meal: "เที่ยง / เย็น", portion: "1 จาน", note: "ใช้คู่ผักสดและคาร์บเล็กน้อย" },
+            { category: "meal", item: "ปลาซาบะย่างกับสลัด", meal: "เที่ยง / เย็น", portion: "1 ชิ้น + สลัด 1 ถ้วย", note: "มื้อเย็นใช้แทนข้าวได้ด้วยมันหรือฟักทอง" },
+            { category: "meal", item: "สลัดอกไก่", meal: "เที่ยง / เย็น", portion: "1 จาน", note: "เติมคาร์บดีเล็กน้อยถ้ากินเป็นมื้อหลัก" },
+            { category: "meal", item: "ข้าวหน้าไก่ย่าง", meal: "เที่ยง", portion: "1 จาน ข้าว 1 กำปั้น", note: "ขอผักหรือซุปใสเพิ่มเพื่อทำลำดับมื้อ" },
+            { category: "meal", item: "ยำทูน่า", meal: "เย็น", portion: "1 จาน", note: "เหมาะกับวันที่ต้องการมื้อเบา" },
+            { category: "meal", item: "ยำวุ้นเส้นทะเลหวานน้อย", meal: "เที่ยง / เย็น", portion: "1 จาน", note: "ขอไม่หวานและเพิ่มผักถ้าได้" },
+
+            { category: "convenience", item: "นมโปรตีนสูงไม่หวาน", meal: "เช้า / ฉุกเฉิน", portion: "1 ขวด", note: "ใช้แทนโปรตีนเร็วได้ทันที" },
+            { category: "convenience", item: "ไข่ต้มคู่", meal: "เช้า / เย็น / ฉุกเฉิน", portion: "1 แพ็ก", note: "พกง่ายที่สุดและเข้ากับทุกหมวด" },
+            { category: "convenience", item: "อกไก่แพ็ก", meal: "เช้า / เที่ยง / เย็น", portion: "1 แพ็ก", note: "เป็นตัวรอดเวลาหาอาหารไม่ครบ" },
+            { category: "convenience", item: "ทูน่ากระป๋องในน้ำแร่", meal: "เช้า / เที่ยง", portion: "1/2-1 กระป๋อง", note: "ใช้กับขนมปังโฮลวีตหรือสลัดได้" },
+            { category: "convenience", item: "สลัดพร้อมทาน", meal: "ทุกมื้อ", portion: "1 กล่อง", note: "ช่วยล็อกลำดับผัก → โปรตีน → คาร์บ ได้ง่าย" },
+            { category: "convenience", item: "ข้าวกล้องพร้อมทาน", meal: "เที่ยง / เย็น", portion: "1/2-1 กล่อง", note: "ใช้คุมคาร์บให้ชัดเวลาอยู่ร้านสะดวกซื้อ" },
+            { category: "convenience", item: "ฟักทองนึ่งถ้วย", meal: "เช้า / เย็น", portion: "1 ถ้วยเล็ก", note: "แทนคาร์บดีได้ดีเมื่อไม่มีมันหรือข้าวกล้อง" },
+            { category: "convenience", item: "มันญี่ปุ่นอบ", meal: "เช้า / เย็น", portion: "1 ลูกเล็ก", note: "เหมาะกับมื้อเช้าแบบไม่ต้องเตรียม" },
+            { category: "convenience", item: "โยเกิร์ตโปรตีนสูงหรือโยเกิร์ตธรรมชาติ", meal: "เช้า", portion: "1 ถ้วย", note: "ใช้เป็นโปรตีนเร็วร่วมกับไข่หรือผลไม้หวานน้อย" },
+            { category: "convenience", item: "เอดามาเมะพร้อมทาน", meal: "เช้า / เที่ยง / ฉุกเฉิน", portion: "1/2-1 ถ้วย", note: "ใช้เป็นทั้งโปรตีนเสริมและของกินกันพลาดได้" }
         ];
 
         const weekMeta = [
@@ -1987,6 +2317,9 @@
         ];
 
         const theoryGrid = document.getElementById("theoryGrid");
+        const foodLibraryCount = document.getElementById("foodLibraryCount");
+        const foodCategoryGrid = document.getElementById("foodCategoryGrid");
+        const foodTableBody = document.getElementById("foodTableBody");
         const weekTabs = document.getElementById("weekTabs");
         const weekPanels = document.getElementById("weekPanels");
 
@@ -2033,6 +2366,33 @@
                     </div>
                     <div class="theory-outcome">${item.outcome}</div>
                 </article>
+            `).join("");
+        }
+
+        function renderFoodLibrary() {
+            foodLibraryCount.textContent = foodLibrary.length;
+
+            foodCategoryGrid.innerHTML = foodCategories.map((category) => {
+                const count = foodLibrary.filter((item) => item.category === category.key).length;
+                return `
+                    <article class="food-category-card">
+                        <strong>${category.label}</strong>
+                        <span>${category.guide}</span>
+                        <span class="food-count ${category.key}">${count} รายการ</span>
+                    </article>
+                `;
+            }).join("");
+
+            const categoryLabel = Object.fromEntries(foodCategories.map((category) => [category.key, category.label]));
+
+            foodTableBody.innerHTML = foodLibrary.map((item) => `
+                <tr>
+                    <td><span class="food-chip ${item.category}">${categoryLabel[item.category]}</span></td>
+                    <td>${item.item}</td>
+                    <td>${item.meal}</td>
+                    <td>${item.portion}</td>
+                    <td>${item.note}</td>
+                </tr>
             `).join("");
         }
 
@@ -2186,6 +2546,7 @@
         }
 
         renderTheoryCards();
+        renderFoodLibrary();
 
         const todayInPlan = planDays.find((item) => item.date === getBangkokTodayKey());
         const initialWeek = todayInPlan ? todayInPlan.week : 1;
