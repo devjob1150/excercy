@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 ทฤษฎี 21 วัน รีดไขมันก่อนสงกรานต์</title>
+    <title>RTS 7 ทฤษฎี — แผนกินเพื่อสุขภาพ 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -720,16 +720,84 @@
             max-width: 540px;
         }
 
-        .tab-bar {
+        .month-bar {
             position: sticky;
             top: 0;
+            z-index: 25;
+            display: flex;
+            gap: 6px;
+            padding: 8px 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: rgba(245, 239, 227, 0.92);
+            backdrop-filter: blur(18px);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-bottom: 1px solid var(--line);
+            scrollbar-width: none;
+        }
+
+        .month-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .month-pill {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text-soft);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--transition);
+        }
+
+        .month-pill:hover {
+            border-color: var(--hero-warm);
+            color: var(--text);
+        }
+
+        .month-pill.active {
+            background: var(--hero-deep);
+            color: #fff8ef;
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(23, 53, 45, 0.24);
+        }
+
+        .month-subtitle {
+            display: block;
+            font-size: 10px;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 1px;
+        }
+
+        .maintenance-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--info-soft);
+            color: var(--info);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+
+        .tab-bar {
+            position: sticky;
+            top: 52px;
             z-index: 20;
             display: flex;
             gap: 10px;
             padding: 10px;
-            border-radius: var(--radius-lg);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
             background: rgba(245, 239, 227, 0.86);
             border: 1px solid rgba(255, 255, 255, 0.42);
+            border-top: none;
             box-shadow: var(--shadow-sm);
             backdrop-filter: blur(18px);
         }
@@ -1233,8 +1301,8 @@
 <body>
     <div class="container">
         <header class="hero">
-            <div class="hero-eyebrow">7 ทฤษฎี x 21 วัน x ก่อนสงกรานต์</div>
-            <h1>รีดไขมันแบบไม่ต้องกินคลีนจ๋า<br>และไม่ต้องออกหนัก</h1>
+            <div class="hero-eyebrow">7 ทฤษฎี x RTS x ตลอดปี 2026</div>
+            <h1>กินดีทั้งปีแบบไม่ต้องคลีนจ๋า<br>และไม่ต้องออกหนัก</h1>
             <p class="hero-copy">
                 ตารางนี้ยึดหลัก RTS ให้มากที่สุด: เปิดวงจรเผาผลาญใน 60 นาทีแรก, กินเรียงผัก → โปรตีน → คาร์บ, เว้นมื้อ 4 ชั่วโมง,
                 ปิดครัวก่อน 20:00, ขยับตัว 7 นาทีหลังอาหาร, และคุมสัดส่วน 40-30-30 ให้ทำได้จริงในชีวิตประจำวัน
@@ -1358,17 +1426,19 @@
         <section class="plan-shell">
             <div class="plan-head">
                 <div>
-                    <h2>ตารางอาหาร 21 วัน</h2>
+                    <h2>ตารางอาหาร RTS — มีนาคม ถึง ธันวาคม 2026</h2>
                     <p>ทุกการ์ดใส่ reminder ตอนเช้า, ลำดับการกิน, ratio badge และทางเลือกสำรองไว้แล้ว เพื่อให้ใช้ได้จริงแม้วันไหนหาอาหารไม่ครบ</p>
                 </div>
             </div>
 
+            <nav class="month-bar" id="monthBar" aria-label="เลือกเดือน"></nav>
             <nav class="tab-bar" id="weekTabs" aria-label="สลับสัปดาห์"></nav>
             <div id="weekPanels"></div>
         </section>
 
         <p class="footer-note">
-            ตารางนี้ตั้งต้นจากวันที่ 24 มีนาคม 2026 ถึง 13 เมษายน 2026 เพื่อให้ครบ 21 วันก่อนช่วงสงกรานต์
+            ตารางนี้เริ่มจากโปรแกรม RTS 21 วัน (24 มี.ค. - 13 เม.ย. 2026) แล้วต่อด้วยแผน Maintenance ถึง 31 ธันวาคม 2026
+            โดยเมนูจะหมุนเวียนทุก 2 สัปดาห์เพื่อความหลากหลายและทำได้จริงในชีวิตประจำวัน
             ถ้ามีโรคประจำตัว, ตั้งครรภ์, ให้นมบุตร หรือมีข้อจำกัดด้านการกิน ควรปรับร่วมกับแพทย์หรือผู้เชี่ยวชาญก่อนใช้ตามตรง
         </p>
     </div>
@@ -1532,7 +1602,7 @@
             { category: "convenience", item: "เอดามาเมะพร้อมทาน", meal: "เช้า / เที่ยง / ฉุกเฉิน", portion: "1/2-1 ถ้วย", note: "ใช้เป็นทั้งโปรตีนเสริมและของกินกันพลาดได้" }
         ];
 
-        const weekMeta = [
+        const originalWeekMeta = [
             { week: 1, title: "สัปดาห์ 1", range: "24-30 มี.ค.", subtitle: "Reset ระบบเผาผลาญ" },
             { week: 2, title: "สัปดาห์ 2", range: "31 มี.ค.-6 เม.ย.", subtitle: "Transform รอบเอว" },
             { week: 3, title: "สัปดาห์ 3", range: "7-13 เม.ย.", subtitle: "Sustainable ก่อนสงกรานต์" }
@@ -1557,7 +1627,7 @@
             note
         });
 
-        const planDays = [
+        const originalPlanDays = [
             day(
                 "2026-03-24",
                 1,
@@ -2316,12 +2386,442 @@
             )
         ];
 
+        const maintenanceTemplates = [
+            {
+                focus: "เริ่มสัปดาห์ด้วยโปรตีนเช้าชัดเจน",
+                theory: ["T1 โปรตีนเช้า", "T2 ผักก่อนเสมอ", "T5 ขยับหลังมื้อ"],
+                proteinKick: "ไข่ต้ม 2 ฟอง หรือกรีกโยเกิร์ต 1 ถ้วย",
+                between: "ดื่มน้ำเปล่าระหว่างมื้อ ไม่จิบกาแฟหวานแทน",
+                kitchen: "ปิดครัว 19:30 เดินเบาๆ ก่อนนอน",
+                meals: {
+                    morning: meal("ไข่ต้ม 2 ฟอง + กรีกโยเกิร์ต 1 ถ้วยเล็ก + ฝรั่ง 1/2 ลูก", [
+                        "7-Eleven: ไข่ต้มคู่ + โยเกิร์ตธรรมชาติ + ฝรั่งหั่น",
+                        "คาเฟ่: อเมริกาโนไม่หวาน + ไข่ต้ม + โยเกิร์ต",
+                        "ถ้าไม่มีผลไม้: ใช้แตงกวาหรือมะเขือเทศแทน"
+                    ]),
+                    noon: meal("สลัดอกไก่ 1 จาน + ข้าวกล้อง 1 ทัพพี + ซุปใส 1 ถ้วย", [
+                        "ร้านตามสั่ง: อกไก่ย่าง + ผักเยอะ + ข้าวครึ่ง",
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + ข้าวกล้อง + สลัดพร้อมทาน",
+                        "ถ้าไม่มีผัก: ใช้แกงจืดหรือน้ำซุปผักแทน"
+                    ]),
+                    evening: meal("ปลานึ่งมะนาว 1 ชิ้น + ผักลวก 1 ถ้วย + มันหวาน 1/2 ลูก", [
+                        "ร้านข้าวแกง: ปลา/ไก่นึ่ง + ต้มจืด + ข้าวครึ่งทัพพี",
+                        "ตลาด: ปลาย่าง + แตงกวา + มันเผา",
+                        "ถ้าไม่มีปลา: ใช้อกไก่ย่างหรือเต้าหู้แทน"
+                    ])
+                },
+                note: "Maintenance: ยึดหลัก RTS เหมือนเดิม โปรตีนเช้า ลำดับมื้อ เว้น 4 ชม."
+            },
+            {
+                focus: "วันนี้ลองเมนูซุป/น้ำเพื่อเพิ่มผักง่ายๆ",
+                theory: ["T2 ลำดับมื้อ", "T3 เว้น 4 ชม.", "T6 สัดส่วน 40-30-30"],
+                proteinKick: "นมโปรตีนสูงไม่หวาน 1 ขวด หรือไข่ออนเซ็น 2 ฟอง",
+                between: "จิบน้ำตลอดช่วงห่างมื้อ ไม่หาของกรุบกรอบ",
+                kitchen: "ปิดครัว 19:45 พักผ่อนให้เต็มที่",
+                meals: {
+                    morning: meal("แซนด์วิชโฮลวีตทูน่า 1 ชิ้น + ไข่ลวก 1 ฟอง + ผักสลัด 1 กำมือ", [
+                        "ร้านสะดวกซื้อ: แซนด์วิชโฮลวีต + ไข่ต้ม + สลัดถุงเล็ก",
+                        "คาเฟ่: อเมริกาโน + แซนด์วิชทูน่า + สลัด",
+                        "ถ้าไม่มีโฮลวีต: ใช้ขนมปังธรรมดาแต่ลดลง 1 แผ่น"
+                    ]),
+                    noon: meal("ต้มยำกุ้งน้ำใส + ข้าวกล้อง 1 กำปั้น + ผักสดแนม", [
+                        "ร้านอาหาร: ต้มยำน้ำใส + ข้าวสวยครึ่งจาน + ผักเพิ่ม",
+                        "ร้านสะดวกซื้อ: ซุปสำเร็จรูป + ข้าวกล้อง + สลัด",
+                        "ถ้าไม่ชอบต้มยำ: ใช้แกงจืดหรือสุกี้น้ำแทน"
+                    ]),
+                    evening: meal("อกไก่ย่าง 1 ฝ่ามือ + บรอกโคลีลวก 1 ถ้วย + ข้าวไรซ์เบอร์รี 1 กำปั้น", [
+                        "ร้านข้าวแกง: ไก่ย่าง/อบ + ผักลวก + ข้าวครึ่ง",
+                        "ตลาด: ไก่ย่าง + ผักสด + มันเผา",
+                        "ถ้าไม่มีบรอกโคลี: ใช้คะน้าลวกหรือผักต้มรวมแทน"
+                    ])
+                },
+                note: "Maintenance: เมนูซุป/น้ำช่วยเติมผักได้ง่ายโดยไม่ต้องพยายามมาก"
+            },
+            {
+                focus: "วันนี้ลองเมนูจานเดียวแบบคุมได้",
+                theory: ["T2 ผักก่อน", "T5 เดิน 7 นาที", "T6 สัดส่วน"],
+                proteinKick: "เวย์ 1/2-1 สกูป หรือไข่ต้ม 2 ฟอง",
+                between: "ดื่มน้ำหรือชาไม่หวาน ระวังขนมจุกจิก",
+                kitchen: "เย็นนี้จบมื้อไม่เกิน 19:30",
+                meals: {
+                    morning: meal("ข้าวโอ๊ต 1 ถ้วยเล็ก + กรีกโยเกิร์ต + กล้วย 1/2 ลูก", [
+                        "ร้านสะดวกซื้อ: โยเกิร์ตโปรตีนสูง + กล้วย + ถั่วเล็กน้อย",
+                        "คาเฟ่: โยเกิร์ตโบวล์ + อเมริกาโนไม่หวาน",
+                        "ถ้าไม่มีข้าวโอ๊ต: ใช้ขนมปังโฮลวีต + ไข่แทน"
+                    ]),
+                    noon: meal("กะเพราอกไก่ผัดน้ำ 1 จาน + ข้าวกล้อง 1 กำปั้น + แตงกวา", [
+                        "ร้านตามสั่ง: กะเพราไก่ ขอไม่ไข่ดาว + ผักเพิ่ม + ข้าวครึ่ง",
+                        "ร้านสะดวกซื้อ: ข้าวกะเพรา + สลัดพร้อมทาน",
+                        "ถ้าไม่มีกะเพรา: ใช้ผัดพริกไก่หรือข้าวมันไก่แทน"
+                    ]),
+                    evening: meal("ลาบไก่ + ผักสดรวม + ข้าวเหนียว 1 ปั้นเล็ก", [
+                        "ร้านอีสาน: ลาบ/น้ำตก + ผักแนม + ข้าวเหนียวนิดเดียว",
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + สลัด + ข้าวกล้อง",
+                        "ถ้าไม่ชอบอีสาน: ใช้สลัดอกไก่หรือยำทูน่าแทน"
+                    ])
+                },
+                note: "Maintenance: เมนูจานเดียวกินง่าย แค่คุมข้าวและเริ่มจากผักก่อน"
+            },
+            {
+                focus: "วันนี้เน้นปลาเป็นโปรตีนหลัก",
+                theory: ["T1 โปรตีนเช้า", "T4 ปิดครัวก่อน 20:00", "T6 สัดส่วน"],
+                proteinKick: "ไข่ออนเซ็น 2 ฟอง หรือทูน่าในน้ำแร่ 1/2 กระป๋อง",
+                between: "น้ำเปล่าหรือชาเขียวไม่หวานระหว่างมื้อ",
+                kitchen: "ปิดครัว 19:30 เพื่อให้ร่างกายพักฟื้น",
+                meals: {
+                    morning: meal("ไข่ออนเซ็น 2 ฟอง + ขนมปังโฮลวีต 1 แผ่น + มะเขือเทศ 4 ชิ้น", [
+                        "ร้านสะดวกซื้อ: ไข่ต้ม + ขนมปังโฮลวีต + มะเขือเทศเชอร์รี",
+                        "คาเฟ่: ไข่ลวก + โทสต์ + สลัดเล็ก",
+                        "ถ้าไม่มีไข่ออนเซ็น: ใช้ไข่ต้มหรือไข่ลวกแทนได้"
+                    ]),
+                    noon: meal("ข้าวต้มปลา 1 ชาม + ผักลวก 1 ถ้วย", [
+                        "ร้านอาหาร: ข้าวต้มปลา + ผักเพิ่ม",
+                        "ร้านสะดวกซื้อ: ปลาซาบะ + ข้าวกล้อง + สลัด",
+                        "ถ้าไม่มีร้านข้าวต้ม: ใช้แกงจืดปลาหรือปลานึ่งแทน"
+                    ]),
+                    evening: meal("ปลาย่าง 1 ชิ้น + ผักต้มรวม 1 ถ้วย + ฟักทองนึ่ง 4 ชิ้น", [
+                        "ร้านข้าวแกง: ปลาทอด/นึ่ง + ผักลวก + ข้าวครึ่ง",
+                        "ตลาด: ปลาย่าง + ผักแนม + มันหวาน",
+                        "ถ้าไม่มีปลาย่าง: ใช้ปลานึ่งหรือปลาซาบะแทน"
+                    ])
+                },
+                note: "Maintenance: ปลาเป็นโปรตีนเบาท้อง ย่อยง่าย เหมาะกับมื้อเย็น"
+            },
+            {
+                focus: "วันนี้ใช้เมนูร้านสะดวกซื้อเป็นหลัก",
+                theory: ["T1 โปรตีนเช้า", "T2 ลำดับมื้อ", "T3 เว้น 4 ชม."],
+                proteinKick: "นมโปรตีนสูงไม่หวาน 1 ขวด + ไข่ต้มคู่",
+                between: "พกน้ำเปล่าติดตัว ไม่ซื้อเครื่องดื่มหวาน",
+                kitchen: "ปิดครัว 19:30 ไม่แวะซื้อของกินดึก",
+                meals: {
+                    morning: meal("ไข่ต้มคู่ + นมโปรตีนสูง 1 ขวด + กล้วย 1/2 ลูก", [
+                        "7-Eleven: ไข่ต้มคู่ + นมโปรตีน + กล้วย",
+                        "Lawson: ไข่ต้ม + โยเกิร์ตโปรตีนสูง + ผลไม้หวานน้อย",
+                        "ถ้าไม่มีนมโปรตีน: ใช้โยเกิร์ตธรรมชาติหรือเวย์แทน"
+                    ]),
+                    noon: meal("อกไก่แพ็ก + สลัดพร้อมทาน + ข้าวกล้องพร้อมทาน 1/2 กล่อง", [
+                        "7-Eleven: อกไก่ + ข้าวกล้อง + สลัดถุง",
+                        "ร้านอาหาร: สลัดอกไก่ + ข้าวนิดหน่อย",
+                        "ถ้าไม่มีอกไก่แพ็ก: ใช้ทูน่ากระป๋อง + สลัดแทน"
+                    ]),
+                    evening: meal("ไก่อบ 1 ฝ่ามือ + เห็ดลวก 1 ถ้วย + มันม่วง 1 ลูกเล็ก", [
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + ฟักทองนึ่ง + สลัด",
+                        "ร้านข้าวแกง: ไก่อบ/ย่าง + ผักลวก + ข้าวครึ่ง",
+                        "ถ้าไม่มีไก่อบ: ใช้อกไก่ย่างหรือไข่ต้มแทน"
+                    ])
+                },
+                note: "Maintenance: ร้านสะดวกซื้อเป็นตัวช่วยดีเวลาไม่มีเวลาเตรียม"
+            },
+            {
+                focus: "วันนี้ลองเปลี่ยนคาร์บเป็นมันหรือฟักทอง",
+                theory: ["T2 ผักก่อน", "T5 ขยับหลังมื้อ", "T7 Sustainable"],
+                proteinKick: "กรีกโยเกิร์ตรสธรรมชาติ 1 ถ้วย + ไข่ลวก 1 ฟอง",
+                between: "ถ้าหิวระหว่างมื้อ ดื่มน้ำก่อนและรอ 15 นาที",
+                kitchen: "ปิดครัว 19:30 เตรียมตัวนอนเร็ว",
+                meals: {
+                    morning: meal("มันหวานนึ่ง 1 ลูกเล็ก + ไข่ต้ม 2 ฟอง + แตงกวา 5 ชิ้น", [
+                        "ร้านสะดวกซื้อ: มันญี่ปุ่นอบ + ไข่ต้มคู่ + แตงกวา",
+                        "บ้าน: มันหวานนึ่ง + ไข่ลวก + ผักสดรวม",
+                        "ถ้าไม่มีมัน: ใช้ฟักทองนึ่งหรือข้าวโอ๊ตแทน"
+                    ]),
+                    noon: meal("ไก่ต้ม 1 ฝ่ามือ + ผักกาดแก้ว 1 ถ้วย + ฟักทองนึ่ง 4 ชิ้น", [
+                        "ร้านตามสั่ง: ไก่ต้ม/ลวก + ผักสด + ข้าวครึ่ง",
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + สลัด + ฟักทองนึ่ง",
+                        "ถ้าไม่มีฟักทอง: ใช้มันหวานหรือเผือกนึ่งแทน"
+                    ]),
+                    evening: meal("แกงเลียงกุ้งสด 1 ชาม + ข้าวกล้อง 1/2 กำปั้น", [
+                        "ร้านอาหาร: แกงเลียง/แกงจืด + ข้าวนิดหน่อย",
+                        "บ้าน: ซุปผักรวม + กุ้งลวก + ข้าวครึ่ง",
+                        "ถ้าไม่มีแกงเลียง: ใช้ต้มจืดหรือซุปเห็ดแทน"
+                    ])
+                },
+                note: "Maintenance: เปลี่ยนคาร์บบ้างช่วยไม่เบื่อ มันและฟักทองเป็นคาร์บดีเหมือนกัน"
+            },
+            {
+                focus: "วันนี้เน้นเมนูเบาเพื่อรีเซ็ตร่างกาย",
+                theory: ["T1 โปรตีนเช้า", "T3 เว้น 4 ชม.", "T4 ปิดครัว"],
+                proteinKick: "ไข่ต้ม 2 ฟอง หรือเวย์ 1/2 สกูป",
+                between: "ดื่มน้ำอุ่นหรือชาสมุนไพรไม่หวาน",
+                kitchen: "ปิดครัว 19:00 วันนี้นอนเร็วขึ้น",
+                meals: {
+                    morning: meal("โจ๊กข้าวโอ๊ต + ไข่ลวก 1 ฟอง + ผักสดแนม", [
+                        "บ้าน: ข้าวโอ๊ตต้ม + ไข่ลวก + ผักสด",
+                        "ร้านสะดวกซื้อ: โจ๊กสำเร็จรูป + ไข่ต้ม",
+                        "ถ้าไม่ชอบโจ๊ก: ใช้ข้าวต้มปลาแทนได้"
+                    ]),
+                    noon: meal("แกงจืดเต้าหู้หมูสับ 1 ชาม + ข้าวกล้อง 1 กำปั้น", [
+                        "ร้านข้าวแกง: แกงจืด/ต้มจืด + ข้าวครึ่ง + ผักลวก",
+                        "ร้านสะดวกซื้อ: ซุปสำเร็จรูป + ข้าวกล้อง + ไข่ต้ม",
+                        "ถ้าไม่มีแกงจืด: ใช้สุกี้น้ำหรือเกาเหลาแทน"
+                    ]),
+                    evening: meal("ซุปเห็ด 1 ถ้วย + อกไก่ย่าง 1/2 ฝ่ามือ + ผักลวก", [
+                        "บ้าน: ซุปผัก + ไก่ต้ม + ผักนึ่ง",
+                        "ร้านอาหาร: ซุปใส + ไก่ย่าง + ผักสด",
+                        "ถ้าไม่มีซุปเห็ด: ใช้ซุปสาหร่ายเต้าหู้แทน"
+                    ])
+                },
+                note: "Maintenance: วันเบานี้ช่วยให้ระบบย่อยพักผ่อน เหมาะหลังวันกินหนัก"
+            },
+            {
+                focus: "วันสังคม: ยืดหยุ่นแต่ยังคุมลำดับการกิน",
+                theory: ["T2 ลำดับมื้อ", "T6 สัดส่วน", "T7 Sustainable"],
+                proteinKick: "เวย์ 1/2-1 สกูป หรือนมโปรตีนสูง 1 ขวด",
+                between: "ถ้ามีนัดกินข้าว ให้คุมด้วยลำดับการกินแทนการห้ามทุกอย่าง",
+                kitchen: "พยายามปิดครัวก่อน 20:00 แม้ไปกินนอกบ้าน",
+                meals: {
+                    morning: meal("เวย์ 1/2-1 สกูป + กล้วย 1/2 ลูก + ไข่ลวก 1 ฟอง", [
+                        "ร้านสะดวกซื้อ: นมโปรตีนสูง + ไข่ต้ม + กล้วย",
+                        "คาเฟ่: อเมริกาโนไม่หวาน + ไข่ + โยเกิร์ต",
+                        "ถ้าไม่มีเวย์: ใช้นมโปรตีนสูงหรือกรีกโยเกิร์ตแทน"
+                    ]),
+                    noon: meal("ข้าวมันไก่เนื้ออกข้าวน้อย + แตงกวา + ซุปใส", [
+                        "ร้านข้าวมันไก่: ขอข้าวน้อย + แตงกวา + ซุปไก่",
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + ข้าวกล้อง + สลัด",
+                        "ถ้าไม่ชอบข้าวมันไก่: ใช้ข้าวหน้าไก่ย่างแทน"
+                    ]),
+                    evening: meal("มื้อสังคม: เริ่มจากผัก/ยำก่อน เลือกโปรตีนไม่ติดมัน คุมคาร์บ 1 กำปั้น", [
+                        "ถ้าเจอปิ้งย่าง: เลือกหมูสันใน ไก่ไม่หนัง กุ้ง และผักย่างก่อน",
+                        "ถ้าเจออาหารอีสาน: เริ่มจากตำแตง ซุปหน่อไม้ ลาบไก่ แล้วค่อยข้าวเหนียวนิดเดียว",
+                        "ถ้าเลี่ยงไม่ได้: รักษาลำดับผัก → โปรตีน → คาร์บ และหยุดก่อนแน่น"
+                    ])
+                },
+                note: "Maintenance: วันสังคมไม่ต้องเพอร์เฟกต์ แค่คุมลำดับและปิดครัวตรงเวลา"
+            },
+            {
+                focus: "วันนี้เพิ่มผักเป็นพิเศษ",
+                theory: ["T2 ผัก 5-7 คำก่อน", "T5 ขยับหลังมื้อ", "T6 สัดส่วน"],
+                proteinKick: "ไข่ต้ม 2 ฟอง + แตงกวา 3 ชิ้นก่อนมื้อเช้า",
+                between: "ดื่มน้ำเปล่าสลับชาเขียวไม่หวาน",
+                kitchen: "ปิดครัว 19:30",
+                meals: {
+                    morning: meal("ไข่ต้ม 2 ฟอง + ผักสลัดรวม 1 ถ้วย + ขนมปังโฮลวีต 1 แผ่น", [
+                        "ร้านสะดวกซื้อ: ไข่ต้มคู่ + สลัดพร้อมทาน + ขนมปัง",
+                        "บ้าน: ไข่ลวก + สลัดผัก + ขนมปังปิ้ง",
+                        "ถ้าไม่มีสลัด: ใช้แตงกวาหรือมะเขือเทศแทน"
+                    ]),
+                    noon: meal("สุกี้น้ำไก่ผักเยอะ 1 ชาม + ข้าวกล้อง 1/2 กำปั้น", [
+                        "ร้านสุกี้: ขอผักเยอะ + ไก่ + น้ำจิ้มครึ่งเดียว + ข้าวนิดหน่อย",
+                        "ร้านตามสั่ง: ผัดผักรวมใส่ไก่ + ข้าวครึ่ง",
+                        "ถ้าไม่มีสุกี้: ใช้ต้มแซ่บหรือแกงเลียงแทน"
+                    ]),
+                    evening: meal("ปลานึ่ง 1 ชิ้น + คะน้าลวก 1 ถ้วย + เผือกนึ่ง 1/2 หัว", [
+                        "ร้านข้าวแกง: ปลานึ่ง/ทอด + ผักลวก + ข้าวครึ่ง",
+                        "ตลาด: ปลาย่าง + ผักสดรวม + มันเผา",
+                        "ถ้าไม่มีปลา: ใช้เต้าหู้ขาวหรืออกไก่แทน"
+                    ])
+                },
+                note: "Maintenance: เพิ่มผักช่วยระบบย่อยและอิ่มนานโดยไม่เพิ่มแคลอรี"
+            },
+            {
+                focus: "วันนี้ลองเมนูอีสานแบบเฮลตี้",
+                theory: ["T1 โปรตีนเช้า", "T2 ลำดับมื้อ", "T7 Sustainable"],
+                proteinKick: "ไข่ต้ม 2 ฟอง หรือกรีกโยเกิร์ต 1 ถ้วย",
+                between: "ดื่มน้ำเปล่า ไม่จิบน้ำอัดลมหรือชานมแทน",
+                kitchen: "ปิดครัว 19:45",
+                meals: {
+                    morning: meal("กรีกโยเกิร์ต 1 ถ้วย + กล้วย 1/2 ลูก + ไข่ต้ม 1 ฟอง", [
+                        "ร้านสะดวกซื้อ: โยเกิร์ตโปรตีนสูง + กล้วย + ไข่ต้ม",
+                        "คาเฟ่: โยเกิร์ตโบวล์ + อเมริกาโนไม่หวาน",
+                        "ถ้าไม่มีโยเกิร์ต: ใช้นมโปรตีนสูง + ไข่ต้มแทน"
+                    ]),
+                    noon: meal("ไก่ย่างกับส้มตำหวานน้อย + ข้าวเหนียว 1 ปั้นเล็ก", [
+                        "ร้านอีสาน: ส้มตำ + ไก่ย่าง + ข้าวเหนียวนิดเดียว",
+                        "ร้านตามสั่ง: ลาบไก่ + ผักสด + ข้าวครึ่ง",
+                        "ถ้าไม่ชอบอีสาน: ใช้สลัดอกไก่หรือข้าวมันไก่แทน"
+                    ]),
+                    evening: meal("น้ำตกหมูสันใน + กะหล่ำปลีลวก + ข้าวไรซ์เบอร์รี 1/2 กำปั้น", [
+                        "ร้านอีสาน: น้ำตก/ลาบ + ผักแนม + ข้าวเหนียวนิดเดียว",
+                        "ร้านข้าวแกง: หมูย่าง + ผักลวก + ข้าวครึ่ง",
+                        "ถ้าไม่มีหมูสันใน: ใช้อกไก่ย่างหรือปลาย่างแทน"
+                    ])
+                },
+                note: "Maintenance: อาหารอีสานเข้ากับ RTS ได้ดี แค่คุมน้ำตาลและข้าวเหนียว"
+            },
+            {
+                focus: "วันนี้เน้นเมนูง่ายเตรียมเร็ว",
+                theory: ["T1 โปรตีนเช้า", "T3 เว้น 4 ชม.", "T4 ปิดครัว"],
+                proteinKick: "ไข่ต้ม 2 ฟอง + น้ำเปล่า 400 มล.",
+                between: "ระหว่างมื้อดื่มน้ำเปล่าเท่านั้น",
+                kitchen: "ปิดครัว 19:30",
+                meals: {
+                    morning: meal("ทูน่าในน้ำแร่ 1/2 กระป๋อง + ขนมปังโฮลวีต 2 แผ่น + แตงกวา", [
+                        "ร้านสะดวกซื้อ: ทูน่ากระป๋อง + ขนมปัง + แตงกวา",
+                        "บ้าน: แซนด์วิชทูน่า + ผักสดรวม",
+                        "ถ้าไม่มีทูน่า: ใช้ไข่ต้ม 2 ฟอง + ขนมปังแทน"
+                    ]),
+                    noon: meal("เกาเหลาหมูตุ๋น 1 ชาม + ข้าวกล้อง 1 กำปั้น", [
+                        "ร้านก๋วยเตี๋ยว: เกาเหลา/ก๋วยเตี๋ยวน้ำใส + ผักเพิ่ม",
+                        "ร้านสะดวกซื้อ: ซุปสำเร็จรูป + ข้าวกล้อง + อกไก่",
+                        "ถ้าไม่มีเกาเหลา: ใช้ก๋วยเตี๋ยวน้ำใสหรือข้าวต้มแทน"
+                    ]),
+                    evening: meal("ไก่ต้ม 1 ฝ่ามือ + ถั่วฝักยาว 1 กำมือ + ข้าวโพดต้ม 1/2 ฝัก", [
+                        "ร้านข้าวแกง: ไก่ต้ม/นึ่ง + ผักลวก + ข้าวครึ่ง",
+                        "ตลาด: ไก่ย่าง + ผักสด + ข้าวโพด",
+                        "ถ้าไม่มีถั่วฝักยาว: ใช้บรอกโคลีหรือผักต้มรวมแทน"
+                    ])
+                },
+                note: "Maintenance: วันเร่งรีบไม่ต้องซับซ้อน แค่จัดลำดับและสัดส่วนให้ถูก"
+            },
+            {
+                focus: "วันนี้ลองเมนูทะเลเป็นหลัก",
+                theory: ["T2 ผักก่อน", "T5 เดิน 7 นาที", "T6 สัดส่วน 40-30-30"],
+                proteinKick: "นมโปรตีนสูงไม่หวาน 1 ขวด หรือไข่ลวก 2 ฟอง",
+                between: "จิบน้ำเปล่าสม่ำเสมอตลอดวัน",
+                kitchen: "ปิดครัว 19:30",
+                meals: {
+                    morning: meal("ไข่ลวก 2 ฟอง + มันญี่ปุ่นอบ 1 ลูกเล็ก + ผักสลัดรวม", [
+                        "ร้านสะดวกซื้อ: ไข่ต้ม + มันญี่ปุ่นอบ + สลัดพร้อมทาน",
+                        "บ้าน: ไข่ลวก + มันหวานนึ่ง + ผักสดรวม",
+                        "ถ้าไม่มีมันญี่ปุ่น: ใช้ฟักทองนึ่งหรือข้าวโอ๊ตแทน"
+                    ]),
+                    noon: meal("ยำวุ้นเส้นทะเลหวานน้อย 1 จาน + ข้าวกล้อง 1/2 กำปั้น", [
+                        "ร้านอาหาร: ยำทะเล ขอไม่หวาน + ข้าวนิดหน่อย",
+                        "ร้านตามสั่ง: ผัดทะเล + ข้าวครึ่ง + ผักสด",
+                        "ถ้าไม่ชอบยำ: ใช้ปลาซาบะย่างกับสลัดแทน"
+                    ]),
+                    evening: meal("ปลาซาบะย่าง 1 ชิ้น + สลัดผักรวม 1 ถ้วย + มันหวาน 1/2 ลูก", [
+                        "ร้านอาหารญี่ปุ่น: ปลาซาบะ + สลัด + ข้าวนิดหน่อย",
+                        "ร้านสะดวกซื้อ: ปลาซาบะ + สลัดพร้อมทาน + ฟักทองนึ่ง",
+                        "ถ้าไม่มีปลาซาบะ: ใช้ปลานึ่งหรือปลาย่างแทน"
+                    ])
+                },
+                note: "Maintenance: อาหารทะเลมีโปรตีนดีและโอเมก้า 3 เหมาะกินสลับกับไก่"
+            },
+            {
+                focus: "วันพักกาย: เน้นเมนูย่อยง่าย",
+                theory: ["T1 โปรตีนเช้า", "T4 ปิดครัวก่อน 20:00", "T7 Sustainable"],
+                proteinKick: "กรีกโยเกิร์ตรสธรรมชาติ 1 ถ้วย",
+                between: "ดื่มน้ำอุ่นหรือชาสมุนไพรไม่หวาน วันนี้พักผ่อนให้เต็มที่",
+                kitchen: "ปิดครัว 19:00 เพื่อให้นอนหลับได้เร็ว",
+                meals: {
+                    morning: meal("ข้าวต้มปลา 1 ชามเล็ก + ไข่ลวก 1 ฟอง", [
+                        "ร้านข้าวต้ม: ข้าวต้มปลา/ไก่ + ผักสดแนม",
+                        "ร้านสะดวกซื้อ: โจ๊กสำเร็จรูป + ไข่ต้ม",
+                        "ถ้าไม่มีข้าวต้ม: ใช้โจ๊กข้าวโอ๊ต + ไข่แทน"
+                    ]),
+                    noon: meal("ซุปสาหร่ายเต้าหู้ 1 ถ้วย + อกไก่ย่าง 1/2 ฝ่ามือ + ข้าวกล้อง 1 กำปั้น", [
+                        "ร้านอาหาร: ซุปใส + ไก่ย่าง + ข้าวครึ่ง",
+                        "ร้านสะดวกซื้อ: ซุปสำเร็จรูป + อกไก่แพ็ก + ข้าวกล้อง",
+                        "ถ้าไม่มีซุปสาหร่าย: ใช้แกงจืดหรือต้มจืดแทน"
+                    ]),
+                    evening: meal("เต้าหู้ขาวนึ่ง + ผักต้มรวม 1 ถ้วย + ข้าวกล้อง 1/2 กำปั้น", [
+                        "บ้าน: เต้าหู้นึ่ง + ผักลวก + ข้าวนิดหน่อย",
+                        "ร้านข้าวแกง: เต้าหู้ทอด/นึ่ง + ผักลวก + ข้าวครึ่ง",
+                        "ถ้าไม่มีเต้าหู้: ใช้ไข่ต้มหรือปลานึ่งแทน"
+                    ])
+                },
+                note: "Maintenance: วันพักกายช่วยให้ระบบย่อยทำงานเบาลง อย่าลืมนอนให้พอ"
+            },
+            {
+                focus: "วันนี้กินนอกบ้านอย่างฉลาด",
+                theory: ["T2 ลำดับมื้อ", "T3 เว้น 4 ชม.", "T5 ขยับหลังมื้อ"],
+                proteinKick: "ไข่ต้ม 2 ฟอง หรือเวย์ 1/2 สกูปก่อนออกจากบ้าน",
+                between: "พกน้ำเปล่าไปด้วย ไม่สั่งเครื่องดื่มหวานระหว่างทาง",
+                kitchen: "พยายามปิดครัวก่อน 20:00",
+                meals: {
+                    morning: meal("ไข่ต้ม 2 ฟอง + เอดามาเมะ 1/2 ถ้วย + ฝรั่ง 1/2 ลูก", [
+                        "ร้านสะดวกซื้อ: ไข่ต้มคู่ + เอดามาเมะ + ผลไม้",
+                        "บ้าน: ไข่ลวก + ถั่วลวก + ผักสดรวม",
+                        "ถ้าไม่มีเอดามาเมะ: ใช้โยเกิร์ตหรือนมโปรตีนแทน"
+                    ]),
+                    noon: meal("ข้าวหน้าไก่ย่าง 1 จาน + ผักสดแนม + ซุปใสเพิ่ม", [
+                        "ร้านอาหาร: ข้าวหน้าไก่/หมู + ผักเพิ่ม + ข้าวครึ่ง",
+                        "ร้านสะดวกซื้อ: อกไก่แพ็ก + ข้าวกล้อง + สลัด",
+                        "ถ้าอยู่ห้าง: เลือกร้านสลัด/ข้าวไก่ย่าง ขอผักเพิ่ม"
+                    ]),
+                    evening: meal("ยำทูน่า 1 จาน + ข้าวกล้อง 1/2 กำปั้น", [
+                        "ร้านอาหาร: ยำทูน่า/สลัดทูน่า + ข้าวนิดหน่อย",
+                        "บ้าน: ทูน่ากระป๋อง + ผักสดรวม + มะนาว",
+                        "ถ้าไม่ชอบยำ: ใช้สลัดอกไก่หรือปลานึ่งแทน"
+                    ])
+                },
+                note: "Maintenance: กินข้าวนอกบ้านได้ แค่เริ่มจากผัก คุมข้าว และเลือกโปรตีนดี"
+            }
+        ];
+
+        const phaseMeta = [
+            { id: "rts", label: "RTS 21 วัน", subtitle: "Reset → Transform → Sustainable" },
+            { id: "2026-04", label: "เม.ย.", month: 4, subtitle: "หลังสงกรานต์: กลับเข้าจังหวะ" },
+            { id: "2026-05", label: "พ.ค.", month: 5, subtitle: "คงน้ำหนัก & สร้างนิสัย" },
+            { id: "2026-06", label: "มิ.ย.", month: 6, subtitle: "ปรับเมนูหน้าฝน" },
+            { id: "2026-07", label: "ก.ค.", month: 7, subtitle: "เข้มข้นขึ้นกลางปี" },
+            { id: "2026-08", label: "ส.ค.", month: 8, subtitle: "คงเส้นคงวา" },
+            { id: "2026-09", label: "ก.ย.", month: 9, subtitle: "ตรวจผล & ปรับสัดส่วน" },
+            { id: "2026-10", label: "ต.ค.", month: 10, subtitle: "เข้าสู่ช่วงปลายปี" },
+            { id: "2026-11", label: "พ.ย.", month: 11, subtitle: "รักษาก่อนเทศกาล" },
+            { id: "2026-12", label: "ธ.ค.", month: 12, subtitle: "จบปีแบบ Sustainable" }
+        ];
+
+        function generateMaintenanceDays(startDate, endDate, templates, startingWeek) {
+            const days = [];
+            const start = new Date(startDate + "T00:00:00+07:00");
+            const end = new Date(endDate + "T00:00:00+07:00");
+            const current = new Date(start);
+            let dayIndex = 0;
+
+            while (current <= end) {
+                const y = current.getFullYear();
+                const m = String(current.getMonth() + 1).padStart(2, "0");
+                const d = String(current.getDate()).padStart(2, "0");
+                const dateKey = `${y}-${m}-${d}`;
+                const daysSinceStart = Math.floor((current - start) / 86400000);
+                const weekNum = startingWeek + Math.floor(daysSinceStart / 7);
+                const template = templates[dayIndex % templates.length];
+
+                days.push(day(
+                    dateKey,
+                    weekNum,
+                    template.focus,
+                    template.theory,
+                    template.proteinKick,
+                    template.between,
+                    template.kitchen,
+                    { morning: template.meals.morning, noon: template.meals.noon, evening: template.meals.evening },
+                    template.note
+                ));
+
+                dayIndex++;
+                current.setDate(current.getDate() + 1);
+            }
+            return days;
+        }
+
+        function generateMaintenanceWeekMeta(days) {
+            const weekMap = new Map();
+            for (const d of days) {
+                if (!weekMap.has(d.week)) {
+                    weekMap.set(d.week, []);
+                }
+                weekMap.get(d.week).push(d.date);
+            }
+
+            const monthShort = ["", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+
+            return Array.from(weekMap.entries()).map(([weekNum, dates]) => {
+                const first = new Date(dates[0]);
+                const last = new Date(dates[dates.length - 1]);
+                const fDay = first.getDate();
+                const fMon = monthShort[first.getMonth() + 1];
+                const lDay = last.getDate();
+                const lMon = monthShort[last.getMonth() + 1];
+                const range = fMon === lMon ? `${fDay}-${lDay} ${fMon}` : `${fDay} ${fMon}-${lDay} ${lMon}`;
+                return { week: weekNum, title: `สัปดาห์ ${weekNum}`, range, subtitle: "Maintenance" };
+            });
+        }
+
+        const maintenanceDays = generateMaintenanceDays("2026-04-14", "2026-12-31", maintenanceTemplates, 4);
+        const planDays = [...originalPlanDays, ...maintenanceDays];
+        const weekMeta = [...originalWeekMeta, ...generateMaintenanceWeekMeta(maintenanceDays)];
+
         const theoryGrid = document.getElementById("theoryGrid");
         const foodLibraryCount = document.getElementById("foodLibraryCount");
         const foodCategoryGrid = document.getElementById("foodCategoryGrid");
         const foodTableBody = document.getElementById("foodTableBody");
+        const monthBar = document.getElementById("monthBar");
         const weekTabs = document.getElementById("weekTabs");
         const weekPanels = document.getElementById("weekPanels");
+
+        let activePhase = "rts";
 
         const dateFormatter = new Intl.DateTimeFormat("th-TH", {
             day: "numeric",
@@ -2396,8 +2896,37 @@
             `).join("");
         }
 
-        function renderTabs(activeWeek) {
-            weekTabs.innerHTML = weekMeta.map((week) => `
+        function renderMonthBar(activePhaseId) {
+            monthBar.innerHTML = phaseMeta.map((phase) => `
+                <button
+                    class="month-pill ${phase.id === activePhaseId ? "active" : ""}"
+                    type="button"
+                    data-phase="${phase.id}"
+                >
+                    ${phase.label}<span class="month-subtitle">${phase.subtitle}</span>
+                </button>
+            `).join("");
+        }
+
+        function getWeeksForPhase(phaseId) {
+            if (phaseId === "rts") {
+                return originalWeekMeta;
+            }
+            const [, monthStr] = phaseId.split("-");
+            const month = Number(monthStr);
+            return weekMeta.filter((w) => {
+                if (w.week <= 3) return false;
+                const weekDays = planDays.filter((d) => d.week === w.week);
+                return weekDays.some((d) => {
+                    const date = new Date(d.date + "T00:00:00+07:00");
+                    return date.getMonth() + 1 === month;
+                });
+            });
+        }
+
+        function renderTabs(activeWeek, visibleWeeks) {
+            const weeks = visibleWeeks || weekMeta;
+            weekTabs.innerHTML = weeks.map((week) => `
                 <button
                     class="tab-btn ${week.week === activeWeek ? "active" : ""}"
                     type="button"
@@ -2438,20 +2967,20 @@
         }
 
         function renderPanels(activeWeek) {
-            const grouped = weekMeta.map((week) => ({
-                ...week,
-                days: planDays.filter((dayItem) => dayItem.week === week.week)
-            }));
+            const weekDays = planDays.filter((dayItem) => dayItem.week === activeWeek);
 
-            weekPanels.innerHTML = grouped.map((week) => `
-                <section class="week-panel ${week.week === activeWeek ? "active" : ""}" data-week="${week.week}">
-                    ${week.days.map((item) => `
+            weekPanels.innerHTML = `
+                <section class="week-panel active" data-week="${activeWeek}">
+                    ${weekDays.map((item) => {
+                        const isMaintenance = item.week > 3;
+                        return `
                         <article class="day-card" data-date="${item.date}">
                             <button class="card-header" type="button" aria-expanded="false">
                                 <div class="card-main">
                                     <div class="date-row">
                                         <span class="date-label">${formatDateLabel(item.date)}</span>
                                         <span class="day-name">${formatDayName(item.date)}</span>
+                                        ${isMaintenance ? '<span class="maintenance-badge">Maintenance</span>' : ""}
                                         <span class="today-badge">วันนี้</span>
                                     </div>
                                     <div class="focus-title">${item.focus}</div>
@@ -2495,9 +3024,9 @@
                                 </div>
                             </div>
                         </article>
-                    `).join("")}
+                    `}).join("")}
                 </section>
-            `).join("");
+            `;
         }
 
         function setActiveWeek(weekNumber) {
@@ -2507,9 +3036,25 @@
                 button.setAttribute("aria-pressed", String(isActive));
             });
 
-            document.querySelectorAll(".week-panel").forEach((panel) => {
-                panel.classList.toggle("active", Number(panel.dataset.week) === weekNumber);
-            });
+            renderPanels(weekNumber);
+        }
+
+        function setActivePhase(phaseId) {
+            activePhase = phaseId;
+            renderMonthBar(phaseId);
+            const phaseWeeks = getWeeksForPhase(phaseId);
+            const firstWeek = phaseWeeks.length > 0 ? phaseWeeks[0].week : 1;
+            renderTabs(firstWeek, phaseWeeks);
+            renderPanels(firstWeek);
+        }
+
+        function getPhaseForDate(dateStr) {
+            const entry = planDays.find((d) => d.date === dateStr);
+            if (!entry) return null;
+            if (entry.week <= 3) return "rts";
+            const date = new Date(dateStr + "T00:00:00+07:00");
+            const month = date.getMonth() + 1;
+            return `${date.getFullYear()}-${String(month).padStart(2, "0")}`;
         }
 
         function openCard(card, shouldOpen) {
@@ -2523,24 +3068,34 @@
 
         function highlightTodayCard() {
             const todayKey = getBangkokTodayKey();
-            const todayCard = document.querySelector(`.day-card[data-date="${todayKey}"]`);
+            const todayEntry = planDays.find((d) => d.date === todayKey);
 
-            if (todayCard) {
-                const weekNumber = Number(todayCard.closest(".week-panel").dataset.week);
-                setActiveWeek(weekNumber);
-                todayCard.classList.add("today");
-                openCard(todayCard, true);
+            if (todayEntry) {
+                const phaseId = getPhaseForDate(todayKey);
+                if (phaseId && phaseId !== activePhase) {
+                    activePhase = phaseId;
+                    renderMonthBar(phaseId);
+                    const phaseWeeks = getWeeksForPhase(phaseId);
+                    renderTabs(todayEntry.week, phaseWeeks);
+                }
+                renderPanels(todayEntry.week);
 
                 requestAnimationFrame(() => {
-                    todayCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                    const todayCard = document.querySelector(`.day-card[data-date="${todayKey}"]`);
+                    if (todayCard) {
+                        todayCard.classList.add("today");
+                        openCard(todayCard, true);
+                        requestAnimationFrame(() => {
+                            todayCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                        });
+                    }
                 });
                 return;
             }
 
-            const firstPanel = document.querySelector('.week-panel[data-week="1"]');
-            const firstCard = firstPanel ? firstPanel.querySelector(".day-card") : null;
+            setActivePhase("rts");
+            const firstCard = document.querySelector(".day-card");
             if (firstCard) {
-                setActiveWeek(1);
                 openCard(firstCard, true);
             }
         }
@@ -2548,30 +3103,34 @@
         renderTheoryCards();
         renderFoodLibrary();
 
-        const todayInPlan = planDays.find((item) => item.date === getBangkokTodayKey());
+        const todayKey = getBangkokTodayKey();
+        const todayInPlan = planDays.find((item) => item.date === todayKey);
+        const initialPhase = todayInPlan ? (getPhaseForDate(todayKey) || "rts") : "rts";
         const initialWeek = todayInPlan ? todayInPlan.week : 1;
 
-        renderTabs(initialWeek);
+        renderMonthBar(initialPhase);
+        activePhase = initialPhase;
+        renderTabs(initialWeek, getWeeksForPhase(initialPhase));
         renderPanels(initialWeek);
         highlightTodayCard();
 
+        monthBar.addEventListener("click", (event) => {
+            const button = event.target.closest(".month-pill");
+            if (!button) return;
+            setActivePhase(button.dataset.phase);
+        });
+
         weekTabs.addEventListener("click", (event) => {
             const button = event.target.closest(".tab-btn");
-            if (!button) {
-                return;
-            }
+            if (!button) return;
             setActiveWeek(Number(button.dataset.week));
         });
 
         weekPanels.addEventListener("click", (event) => {
             const button = event.target.closest(".card-header");
-            if (!button) {
-                return;
-            }
+            if (!button) return;
             const card = button.closest(".day-card");
-            if (!card) {
-                return;
-            }
+            if (!card) return;
             openCard(card);
         });
     </script>
